@@ -1,4 +1,4 @@
-# API 管理平台
+# 梦泽 API 管理平台
 
 一个基于 Vue 3 和 Element Plus 的 API 管理平台，用于展示和管理 API 列表、状态和文档，支持移动端和 PC 端适配
 
