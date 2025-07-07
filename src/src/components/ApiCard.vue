@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/API/${api.docFile.replace('.md', '')}`" class="card">
+  <router-link :to="`/api/${api.name}`" class="card">
     <el-skeleton :loading="loading" animated>
       <template #template>
         <el-skeleton-item variant="h3" style="width: 50%; margin-bottom: 6px" />
@@ -8,12 +8,10 @@
         <el-skeleton-item variant="text" style="width: 60%" />
       </template>
       <template #default>
-        <div class="card-header">
-          <h3 class="card-title">{{ api.name }}</h3>
-          <div class="card-status">
-            <span :class="statusClass"></span>
-            <span>{{ statusText }}</span>
-          </div>
+        <h3 class="card-title">{{ api.name }}</h3>
+        <div class="card-status">
+          <b>API状态：</b><span :class="statusClass"></span>
+          <span>{{ statusCode }}</span>
         </div>
         <p class="card-endpoint">
           <el-icon><Link /></el-icon>
@@ -29,7 +27,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { checkApiStatus } from '../utils/checkStatus'
 import { Link, Document } from '@element-plus/icons-vue'
 
@@ -47,9 +45,6 @@ export default {
   computed: {
     statusClass() {
       return this.statusCode === 200 ? 'status-dot status-green' : 'status-dot status-red'
-    },
-    statusText() {
-      return this.statusCode === 200 ? '正常' : '错误'
     }
   },
   async created() {
@@ -62,71 +57,62 @@ export default {
 <style scoped>
 .card {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 16px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-decoration: none;
   color: #2d3748;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  transform: translateY(-4px);
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .card-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0;
-  color: #1a202c;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: #2d3748;
 }
 
 .card-status {
   display: flex;
   align-items: center;
+  margin-bottom: 6px;
   font-size: 12px;
   color: #4a5568;
-  background: #f7fafc;
-  padding: 4px 8px;
-  border-radius: 12px;
 }
 
 .card-endpoint {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
+  gap: 4px;
+  font-size: 12px;
   color: #4a5568;
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
 .card-endpoint code {
-  background: #f1f5f9;
-  padding: 4px 8px;
-  border-radius: 6px;
+  background: #edf2f7;
+  padding: 3px 6px;
+  border-radius: 4px;
   font-size: 12px;
-  word-break: break-all;
+  word-wrap: break-word;
+  white-space: normal;
   max-width: 100%;
+  box-sizing: border-box;
 }
 
 .card-description {
   display: flex;
   align-items: flex-start;
-  gap: 6px;
-  font-size: 13px;
+  gap: 4px;
+  font-size: 12px;
   color: #4a5568;
-  line-height: 1.5;
+  line-height: 1.4;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -137,28 +123,27 @@ export default {
 
 .card-endpoint .el-icon,
 .card-description .el-icon {
-  font-size: 16px;
-  color: #4a5568;
-  transition: transform 0.3s ease;
+  font-size: 14px;
+  transition: transform 0.2s ease;
 }
 
 .card:hover .card-endpoint .el-icon,
 .card:hover .card-description .el-icon {
-  transform: scale(1.15);
+  transform: scale(1.2);
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   margin-right: 6px;
 }
 
 .status-green {
-  background-color: #38a169;
+  background-color: #48bb78;
 }
 
 .status-red {
-  background-color: #e53e3e;
+  background-color: #f56565;
 }
 </style>

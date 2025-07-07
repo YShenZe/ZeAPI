@@ -4,8 +4,8 @@ import cp from 'vite-plugin-cp'
 
 export default defineConfig({
   plugins: [
-  vue(),
-  cp({
+    vue(),
+    cp({
       targets: [
         {
           src: './data.yml',
@@ -13,5 +13,8 @@ export default defineConfig({
         }
       ]
     })
-  ]
+  ],
+  server: {
+    historyApiFallback: true
+  }
 })

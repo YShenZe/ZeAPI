@@ -1,6 +1,42 @@
 apis:
-  - name: "Example API"
-    statusUrl: "https://example.com/api"
-    description: "Example API's Description"
-    endpoint: "https://example.com/api"
-    docFile: "example.md"
+- name: 历史上的今天
+  statusUrl: https://zeapi.ink/v1/today.php
+  description: 集齐了自时间这个概念产生到2020年所有大事件
+  endpoint: https://zeapi.ink/v1/today.php
+  docFile: today.md
+- name: 随机一言
+  statusUrl: https://zeapi.ink/v1/onesay.php
+  description: 收录了2.7w条随机文案一句话
+  endpoint: https://zeapi.ink/v1/onesay.php
+  docFile: onesay.md
+- name: 域名Whois+查价
+  statusUrl: https://zeapi.ink/v1/whois.php?domain=mengze.vip&currency=USD
+  description: 这个接口会返回Whois信息+域名最低价格
+  endpoint: https://zeapi.ink/v1/whois.php
+  docFile: whois.md
+- name: 二维码生成
+  statusUrl: https://zeapi.ink/v1/qrcode.php?text=%E6%A2%A6%E6%B3%BD&size=100&margin=4&format=jpg
+  description: 支持传入URL和纯文本返回Base64编码的二维码图片
+  endpoint: https://zeapi.ink/v1/qrcode.php
+  docFile: qrcode.md
+- name: 获取QQ昵称和头像
+  statusUrl: https://zeapi.ink/v1/qqinfo.php
+  description: 指定QQ获取其QQ头像和昵称，头像会用Base64返回
+  endpoint: https://zeapi.ink/v1/qqinfo.php?qq=3268612069&size=100
+  docFile: qqinfo.md
+- name: 我的世界服务器信息获取
+  statusUrl: https://zeapi.ink/v1/mcstatus.php?server=9.rwmc.top&port=25565&type=Java
+  description: 通过DevLancer/MinecraftStatus库获取我的世界服务器信息
+  endpoint: https://zeapi.ink/v1/mcstatus.php
+  docFile: mcstatus.md
+- name: TOTP临时密码生成
+  statusUrl: https://zeapi.ink/v1/key2otp.php?secret=GEZDGNBVGY3TQOI&algorithm=sha1&digits=6&period=30
+  description: 通过传入密钥、算法等参数，调用TOTP算法生成一个30s的临时密码
+  endpoint: https://zeapi.ink/v1/key2otp.php
+  docFile: key2otp.md
+- name: 我的世界皮肤披风链接获取
+  statusUrl: https://zeapi.ink/v1/mcinfo.php?username=jeb_
+  description: 通过Mojang API获取用户UUID，再用UUID获取玩家皮肤和斗篷
+  endpoint: https://zeapi.ink/v1/mcinfo.php
+  docFile: mcinfo.md
+...
