@@ -1,0 +1,1 @@
+import{_ as i,c as a,o as n,ag as h}from"./chunks/framework.BHpayLOB.js";const r=JSON.parse('{"title":"历史上的今天","description":"","frontmatter":{},"headers":[],"relativePath":"docs/today.md","filePath":"docs/today.md"}'),k={name:"docs/today.md"};function t(p,s,l,E,e,y){return n(),a("div",null,s[0]||(s[0]=[h("",16)]))}const F=i(k,[["render",t]]);export{r as __pageData,F as default};
