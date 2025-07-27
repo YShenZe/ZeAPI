@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>梦泽API文档更新</title>
+        <link>https://zeapi.ink/zh/</link>
+        <description>梦泽API文档的最新更新</description>
+        <lastBuildDate>Sun, 27 Jul 2025 00:27:33 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Feed for Node.js</generator>
+        <language>zh</language>
+        <image>
+            <title>梦泽API文档更新</title>
+            <url>https://zeapi.ink/zh/logo.png</url>
+            <link>https://zeapi.ink/zh/</link>
+        </image>
+        <copyright>版权所有 © 2025 ZeAPI 团队</copyright>
+    </channel>
+</rss>

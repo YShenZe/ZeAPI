@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>ZeAPI Documentation Updates</title>
+        <link>https://zeapi.ink</link>
+        <description>Latest updates to ZeAPI documentation</description>
+        <lastBuildDate>Sun, 27 Jul 2025 00:27:33 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Feed for Node.js</generator>
+        <language>en</language>
+        <image>
+            <title>ZeAPI Documentation Updates</title>
+            <url>https://zeapi.ink/logo.png</url>
+            <link>https://zeapi.ink</link>
+        </image>
+        <copyright>Copyright © 2025 ZeAPI Team</copyright>
+    </channel>
+</rss>

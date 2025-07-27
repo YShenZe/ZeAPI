@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as s,ag as o}from"./chunks/framework.BHpayLOB.js";const h=JSON.parse('{"title":"随机一言","description":"","frontmatter":{},"headers":[],"relativePath":"docs/onesay.md","filePath":"docs/onesay.md"}'),n={name:"docs/onesay.md"};function i(r,a,p,c,d,l){return s(),t("div",null,a[0]||(a[0]=[o("",5)]))}const u=e(n,[["render",i]]);export{h as __pageData,u as default};
