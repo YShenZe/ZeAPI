@@ -78,5 +78,29 @@ features:
   - title: PBKDF2 Password Generation
     link: /docs/pbkdf2
     details: Zero-knowledge password generation API based on PBKDF2 algorithm
+    
+  - title: QQ Forced Redirect
+    link: /docs/qzztqq
+    details: Incoming QQ number is forced to jump to QQ plus friends, private chat page
+    
+  - title: Bing Daily Wallpaper
+    link: /docs/bingpic
+    details: Get Bing's wallpaper of the day
+    
+  - title: No more APIS yet
+    details: More APIs are under development...
 ---
+
+<hr />
+
+Discover a growing collection of **free, lightweight APIs** for developers. Our services require no registration and cover various functionalities including historical data, utilities, gaming tools, and content generation.
+
+## Why Choose Our APIs?
+- 🚀 **Instant Access**: No API keys required
+- ⚡ **Fast Response**: Optimized endpoints
+- 📦 **Lightweight**: Minimal payloads
+- 🆓 **100% Free**: No hidden costs
+
+All APIs are production-ready and maintained regularly. Explore the documentation to start integrating!
+
 <Confetti />

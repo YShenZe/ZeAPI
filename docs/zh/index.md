@@ -78,5 +78,29 @@ features:
   - title: PBKDF2密码生成
     link: /zh/docs/pbkdf2
     details: 基于PBKDF2算法的零知识密码生成API
+    
+  - title: 强制转跳QQ
+    link: /docs/qzztqq
+    details: 传入QQ号强制转跳QQ加好友、私聊页面
+    
+  - title: Bing每日壁纸
+    link: /docs/bingpic
+    details: 获取Bing当日的壁纸
+    
+  - title: No more APIS yet
+    details: More APIs are under development...
 ---
+
+<hr />
+
+探索我们专为开发者打造的**免费轻量API合集**，无需注册即可使用各类服务，涵盖历史数据、实用工具、游戏开发助手及内容生成等多样化功能。
+
+## 为何选择我们的API？
+- 🚀 **即时访问**：无需API密钥
+- ⚡ **极速响应**：接口端点深度优化
+- 📦 **轻量传输**：最小化数据负载
+- 🆓 **100%免费**：绝无隐藏费用
+
+所有API均满足生产环境需求并持续维护更新。立即探索文档，开启集成之旅！
+
 <Confetti />
