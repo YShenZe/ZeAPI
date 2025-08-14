@@ -1,31 +1,33 @@
-# Minecraft Skin/Cape URL Retrieval
+# 我的世界皮肤/披风链接获取
 
-## 1. Basic Usage
+## 1. 基本调用
 
 ::: tip
-The server will not log any of your requests or compromise your privacy in any way!
+服务器不会记录您的任何请求，也不会窃取您的任何隐私！
 :::
 
-**Base API URL**
-```url
+**基本 API 地址**
+
+```txt
 https://zeapi.ink/v1/mcinfo.php
 ```
 
-Query Minecraft user UUID, skin, and cape information using the following URL or POST request:
+通过以下 URL 或 POST 请求查询 Minecraft 用户的 UUID、皮肤和披风信息：
 
-**GET Request Example**:
-```url
+**GET 请求示例**：
+
+```txt
 https://zeapi.ink/v1/mcinfo.php?username=jeb_
 ```
 
-**POST Request Example** (sending JSON data):
+**POST 请求示例**（发送 JSON 数据）：
 ```json
 {
     "username": "jeb_"
 }
 ```
 
-**Shell Request Example**:
+**Shell 请求代码示例**：
 ```shell
 curl -X POST https://zeapi.ink/v1/mcinfo.php \
 -H "Content-Type: application/json" \
@@ -34,17 +36,17 @@ curl -X POST https://zeapi.ink/v1/mcinfo.php \
 
 ---
 
-## 2. Request Parameters
+## 2. 请求参数说明
 
-| Parameter  | Type   | Required | Default Value | Description                   |
-|------------|--------|----------|---------------|-------------------------------|
-| username   | string | Yes      | None          | Minecraft username            |
+| 参数      | 类型   | 必填 | 默认值 | 说明                              |
+|-----------|--------|------|--------|----------------------------------|
+| username  | string | 是   | 无     | Minecraft 用户名                 |
 
 ---
 
-## 3. JSON Response Format
+## 3. JSON 响应格式
 
-**Success Response Example**:
+**成功响应示例**：
 ```json
 {
     "status": "success",
@@ -62,7 +64,7 @@ curl -X POST https://zeapi.ink/v1/mcinfo.php \
 }
 ```
 
-**Error Response Example (missing username)**:
+**错误响应示例（缺少用户名）**：
 ```json
 {
     "status": "error",
@@ -70,7 +72,7 @@ curl -X POST https://zeapi.ink/v1/mcinfo.php \
 }
 ```
 
-**Error Response Example (invalid username or UUID not found)**:
+**错误响应示例（无效用户名或 UUID 未找到）**：
 ```json
 {
     "status": "error",
@@ -78,7 +80,7 @@ curl -X POST https://zeapi.ink/v1/mcinfo.php \
 }
 ```
 
-**Error Response Example (failed to fetch profile data)**:
+**错误响应示例（无法获取用户档案数据）**：
 ```json
 {
     "status": "error",
@@ -86,7 +88,7 @@ curl -X POST https://zeapi.ink/v1/mcinfo.php \
 }
 ```
 
-**Error Response Example (no texture data found)**:
+**错误响应示例（未找到纹理数据）**：
 ```json
 {
     "status": "error",
@@ -94,26 +96,26 @@ curl -X POST https://zeapi.ink/v1/mcinfo.php \
 }
 ```
 
-**Error Response Example (server error)**:
+**错误响应示例（服务器错误）**：
 ```json
 {
     "status": "error",
-    "message": "Server error: [error message]"
+    "message": "Server error: [错误信息]"
 }
 ```
 
 ---
 
-## 4. Response Fields Description
+## 4. 响应字段说明
 
-| Field          | Type   | Description                              |
-|----------------|--------|------------------------------------------|
-| status         | string | Request status (success/error)           |
-| message        | string | Operation result message                |
-| data           | object | User information data (returned only on success) |
-| data.username  | string | Minecraft username                      |
-| data.uuid      | string | User's UUID                             |
-| data.skin      | object | Skin information, contains url field (may be null) |
-| data.skin.url  | string | URL of the skin texture (if exists)     |
-| data.cape      | object | Cape information, contains url field (may be null) |
-| data.cape.url  | string | URL of the cape texture (if exists)     |
+| 字段          | 类型   | 说明                              |
+|---------------|--------|----------------------------------|
+| status        | string | 请求状态（success/error）        |
+| message       | string | 操作结果消息                    |
+| data          | object | 用户信息数据（仅在成功时返回）   |
+| data.username | string | Minecraft 用户名                 |
+| data.uuid     | string | 用户的 UUID                     |
+| data.skin     | object | 皮肤信息，包含 url 字段（可能为 null） |
+| data.skin.url | string | 皮肤纹理的 URL（如果存在）       |
+| data.cape     | object | 披风信息，包含 url 字段（可能为 null） |
+| data.cape.url | string | 披风纹理的 URL（如果存在）       |

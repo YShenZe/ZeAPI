@@ -1,31 +1,32 @@
-# Retrieve QQ Nickname and Avatar
+# 获取 QQ 昵称和头像
 
-## 1. Basic Usage
-Use the following URL to retrieve a QQ nickname and avatar:
-```url
+## 1. 基本调用
+通过以下URL获取QQ昵称与头像：
+
+```txt
 https://zeapi.ink/v1/qqinfo.php?qq=94113786&size=100
 ```
 
-## 2. Request Parameters
-| Parameter | Type   | Required | Default Value | Description                              |
-|-----------|--------|----------|---------------|------------------------------------------|
-| qq        | string | Yes      | None          | The QQ number to query                   |
-| size      | int    | No       | 100           | Avatar size (pixels, equal width and height) |
+## 2. 请求参数说明
+| 参数   | 类型   | 必填 | 默认值 | 说明                              |
+|--------|--------|------|--------|----------------------------------|
+| qq     | string | 是   | 无     | 要查询的QQ号码                   |
+| size   | int    | 否   | 100    | 头像尺寸（像素，宽高相等）       |
 
-**Size Parameter Mapping**:
-| Size Value | Actual Size |
-|------------|-------------|
-| 1          | 40×40       |
-| 2          | 40×40       |
-| 3          | 100×100     |
-| 4          | 140×140     |
-| 5          | 640×640     |
-| 40         | 40×40       |
-| 100        | 100×100     |
+**尺寸参数对应表**：
+| size值 | 实际尺寸  |
+|---------|----------|
+| 1       | 40×40    |
+| 2       | 40×40    |
+| 3       | 100×100  |
+| 4       | 140×140  |
+| 5       | 640×640  |
+| 40      | 40×40    |
+| 100     | 100×100  |
 
-## 3. JSON Response Format
+## 3. JSON响应格式
 
-**Success Response Example**:
+**成功响应示例**：
 ```json
 {
     "status": "success",
@@ -38,7 +39,7 @@ https://zeapi.ink/v1/qqinfo.php?qq=94113786&size=100
 }
 ```
 
-**Error Response Example**:
+**错误响应示例**：
 ```json
 {
     "status": "error",
@@ -46,12 +47,12 @@ https://zeapi.ink/v1/qqinfo.php?qq=94113786&size=100
 }
 ```
 
-## 4. Response Fields Description
-| Field          | Type   | Description                              |
-|----------------|--------|------------------------------------------|
-| status         | string | Request status (success/error)           |
-| message        | string | Error message (returned only when status=error) |
-| data.qq        | string | Queried QQ number                       |
-| data.nickname  | string | QQ nickname                             |
-| data.avatar    | string | Base64-encoded avatar image data        |
-| data.size      | int    | Actual size of the returned avatar      |
+## 4. 响应字段说明
+| 字段          | 类型   | 说明                              |
+|---------------|--------|----------------------------------|
+| status        | string | 请求状态（success/error）        |
+| message       | string | 错误信息（仅在status=error时返回）|
+| data.qq       | string | 查询的QQ号码                     |
+| data.nickname | string | QQ昵称                           |
+| data.avatar   | string | Base64编码的头像图片数据         |
+| data.size     | int    | 返回的头像实际尺寸               |

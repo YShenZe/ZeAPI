@@ -1,22 +1,25 @@
-# TOTP Temporary Password Generation
+# TOTP 临时密码生成
 
-## 1. Basic Usage
+## 1. 基本调用
 
 ::: tip
-The server will not log any of your requests or compromise your privacy in any way!
+服务器不会记录您的任何请求，也不会窃取您的任何隐私！
 :::
 
-Base API URL:
-```url
+基本API地址
+
+```txt
 https://zeapi.ink/v1/key2otp.php
 ```
 
-Generate a one-time password (OTP) using the following URL or POST request:
-```url
+
+通过以下 URL 或 POST 请求生成一次性密码（OTP）：
+
+```txt
 https://zeapi.ink/v1/key2otp.php?secret=GEZDGNBVGY3TQOI&algorithm=sha1&digits=6&period=30
 ```
 
-Or send JSON data via POST request:
+或通过 POST 请求发送 JSON 数据：
 ```json
 {
     "secret": "GEZDGNBVGY3TQOI",
@@ -26,7 +29,7 @@ Or send JSON data via POST request:
 }
 ```
 
-Shell request example:
+Shell请求代码如下
 ```shell
 curl -X POST https://zeapi.ink/v1/key2otp.php \
 -d "secret=GEZDGNBVGY3TQOI=" \
@@ -35,16 +38,16 @@ curl -X POST https://zeapi.ink/v1/key2otp.php \
 -d "period=30"
 ```
 
-## 2. Request Parameters
-| Parameter  | Type   | Required | Default Value | Description                              |
-|------------|--------|----------|---------------|------------------------------------------|
-| secret     | string | Yes      | None          | Base32-encoded TOTP secret (only A-Z and 2-7 allowed) |
-| algorithm  | string | No       | sha1          | Encryption algorithm, supports sha1, sha256, sha512 |
-| digits     | int    | No       | 6             | OTP length, supports 6 to 8 digits       |
-| period     | int    | No       | 30            | OTP validity period (seconds), range 1 to 300 seconds |
+## 2. 请求参数说明
+| 参数      | 类型   | 必填 | 默认值 | 说明                              |
+|-----------|--------|------|--------|----------------------------------|
+| secret    | string | 是   | 无     | Base32 编码的 TOTP 密钥（只允许 A-Z 和 2-7） |
+| algorithm | string | 否   | sha1   | 加密算法，支持 sha1、sha256、sha512 |
+| digits    | int    | 否   | 6      | OTP 位数，支持 6 到 8 位         |
+| period    | int    | 否   | 30     | OTP 有效期（秒），范围 1 到 300 秒 |
 
-## 3. JSON Response Format
-Success response example:
+## 3. JSON 响应格式
+成功响应示例：
 ```json
 {
     "status": "success",
@@ -56,7 +59,7 @@ Success response example:
 }
 ```
 
-Error response example (missing secret):
+错误响应示例（缺少密钥）：
 ```json
 {
     "status": "error",
@@ -64,7 +67,7 @@ Error response example (missing secret):
 }
 ```
 
-Error response example (invalid secret format):
+错误响应示例（无效密钥格式）：
 ```json
 {
     "status": "error",
@@ -72,7 +75,7 @@ Error response example (invalid secret format):
 }
 ```
 
-Error response example (unsupported algorithm):
+错误响应示例（不支持的算法）：
 ```json
 {
     "status": "error",
@@ -80,7 +83,7 @@ Error response example (unsupported algorithm):
 }
 ```
 
-Error response example (invalid digits):
+错误响应示例（无效位数）：
 ```json
 {
     "status": "error",
@@ -88,7 +91,7 @@ Error response example (invalid digits):
 }
 ```
 
-Error response example (invalid period):
+错误响应示例（无效有效期）：
 ```json
 {
     "status": "error",
@@ -96,21 +99,21 @@ Error response example (invalid period):
 }
 ```
 
-Error response example (failed to generate OTP):
+错误响应示例（生成 OTP 失败）：
 ```json
 {
     "status": "error",
-    "message": "Failed to generate OTP: [error message]"
+    "message": "Failed to generate OTP: [错误信息]"
 }
 ```
 
-## 4. Response Fields Description
-| Field       | Type   | Description                              |
-|-------------|--------|------------------------------------------|
-| status      | string | Request status (success/error)           |
-| otp         | string | Generated one-time password (TOTP)       |
-| algorithm   | string | Encryption algorithm used (sha1/sha256/sha512) |
-| digits      | int    | OTP length                              |
-| period      | int    | OTP validity period (seconds)           |
-| expires_at  | string | OTP expiration time (format: YYYY-MM-DD HH:MM:SS) |
-| message     | string | Operation result message (returned only on error) |
+## 4. 响应字段说明
+| 字段          | 类型   | 说明                              |
+|---------------|--------|----------------------------------|
+| status        | string | 请求状态（success/error）        |
+| otp           | string | 生成的一次性密码（TOTP）         |
+| algorithm     | string | 使用的加密算法（sha1/sha256/sha512） |
+| digits        | int    | OTP 位数                        |
+| period        | int    | OTP 有效期（秒）                |
+| expires_at    | string | OTP 有效期时间（格式：YYYY-MM-DD HH:MM:SS） |
+| message       | string | 操作结果消息（仅在错误时返回）   |

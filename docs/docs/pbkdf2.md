@@ -1,22 +1,23 @@
-# PBKDF2 Password Generation
-
-## 1. Basic Usage
+# 零知识密码生成
+## 1. 基本调用
 
 ::: tip
-The server will not log any of your requests or compromise your privacy! All password generation is performed in memory with no disk storage, ensuring zero-knowledge security.
+服务器不会记录您的任何请求，也不会窃取您的任何隐私！所有密码生成均在内存内完成，无落盘操作，确保零知识安全。
 :::
 
-Base API URL:
-```url
+基本API地址
+
+```txt
 https://zeapi.ink/v1/pbkdf2.php
 ```
 
-Generate a unique PBKDF2-based password using the following URL or POST request:
-```url
+通过以下 URL 或 POST 请求生成基于 PBKDF2 的唯一密码：
+
+```txt
 https://zeapi.ink/v1/pbkdf2.php?master_password=mysecret&website_name=example.com&algorithm=sha256&iteration_length=10000&key_length=32
 ```
 
-Or send JSON data via POST request:
+或通过 POST 请求发送 JSON 数据：
 ```json
 {
     "master_password": "mysecret",
@@ -27,7 +28,7 @@ Or send JSON data via POST request:
 }
 ```
 
-Shell request example:
+Shell 请求代码如下：
 ```shell
 curl -X POST https://zeapi.ink/v1/pbkdf2.php \
 -H "Content-Type: application/json" \
@@ -40,57 +41,57 @@ curl -X POST https://zeapi.ink/v1/pbkdf2.php \
 }'
 ```
 
-## 2. Request Parameters
-| Parameter         | Type   | Required | Default Value | Description                              |
-|-------------------|--------|----------|---------------|------------------------------------------|
-| master_password   | string | Yes      | None          | User's master password for generating a unique password |
-| website_name      | string | Yes      | None          | Target website name or domain, used to generate the salt |
-| algorithm         | string | No       | sha256        | PBKDF2 encryption algorithm, supports sha256, sha512 |
-| iteration_length  | int    | No       | 10000         | PBKDF2 iteration count, recommended to be at least 1000 |
-| key_length        | int    | No       | 32            | Generated password length (in bytes), recommended 16-64 |
+## 2. 请求参数说明
+| 参数             | 类型   | 必填 | 默认值   | 说明                              |
+|------------------|--------|------|----------|----------------------------------|
+| master_password  | string | 是   | 无       | 用户的主密码，用于生成唯一密码    |
+| website_name     | string | 是   | 无       | 目标网站名称或域名，用于生成盐值  |
+| algorithm        | string | 否   | sha256   | PBKDF2 加密算法，支持 sha256、sha512 |
+| iteration_length | int    | 否   | 10000    | PBKDF2 迭代次数，建议不少于 1000 |
+| key_length       | int    | 否   | 32       | 生成密码的长度（字节），建议 16-64 |
 
-## 3. JSON Response Format
-Success response example:
+## 3. JSON 响应格式
+成功响应示例：
 ```json
 {
     "status": "success",
-    "password": "generated_base64_encoded_password",
+    "password": "生成的base64编码密码",
     "algorithm": "sha256",
     "iteration_length": 10000,
     "key_length": 32
 }
 ```
 
-Error response example (missing master password or website name):
+错误响应示例（缺少主密码或网站名）：
 ```json
 {
     "status": "error",
-    "message": "Master password and website name are required"
+    "message": "主密码和网站名是必填项"
 }
 ```
 
-Error response example (unsupported algorithm):
+错误响应示例（不支持的算法）：
 ```json
 {
     "status": "error",
-    "message": "Unsupported algorithm"
+    "message": "不支持的算法"
 }
 ```
 
-Error response example (invalid iteration length or key length):
+错误响应示例（无效迭代长度或密钥长度）：
 ```json
 {
     "status": "error",
-    "message": "Invalid iteration length or key length"
+    "message": "迭代长度或密钥长度无效"
 }
 ```
 
-## 4. Response Fields Description
-| Field             | Type   | Description                              |
-|-------------------|--------|------------------------------------------|
-| status            | string | Request status (success/error)           |
-| password          | string | Generated password (base64 encoded)      |
-| algorithm         | string | Encryption algorithm used (sha256/sha512) |
-| iteration_length  | int    | PBKDF2 iteration count                  |
-| key_length        | int    | Generated password length (in bytes)     |
-| message           | string | Operation result message (returned only on error) |
+## 4. 响应字段说明
+| 字段             | 类型   | 说明                              |
+|------------------|--------|----------------------------------|
+| status           | string | 请求状态（success/error）        |
+| password         | string | 生成的密码（base64 编码）        |
+| algorithm        | string | 使用的加密算法（sha256/sha512）  |
+| iteration_length | int    | PBKDF2 迭代次数                 |
+| key_length       | int    | 生成密码的长度（字节）           |
+| message          | string | 操作结果消息（仅在错误时返回）   |

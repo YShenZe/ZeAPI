@@ -1,40 +1,44 @@
-# Minecraft Server Information Retrieval
+# 我的世界服务器信息获取
 
-## 1. Basic Usage
-Retrieve Minecraft server status information using the following URL:
+## 1. 基本调用
+通过以下 URL 获取 Minecraft 服务器的状态信息：
 
-```url
+
+```txt
 https://zeapi.ink/v1/mcstatus.php
 ```
 
-### Query Java Edition
-Retrieve Minecraft Java server status information using the following URL:
+### 查询Java版
+通过以下 URL 获取 Minecraft Java 服务器的状态信息：
 
-```url
+
+```txt
 https://zeapi.ink/v1/mcstatus.php?server=9.rwmc.top&port=25565&type=Java
 ```
 
-### Query Bedrock Edition
-Retrieve Minecraft Bedrock server status information using the following URL:
+### 查询基岩版
+通过以下 URL 获取 Minecraft Bedrock 服务器的状态信息：
 
-```url
+
+```txt
 https://zeapi.ink/v1/mcstatus.php?server=9.rwmc.top&port=19132&type=be
 ```
 
-## 2. Request Parameters
-| Parameter | Type   | Required | Default Value       | Description                              |
-|-----------|--------|----------|---------------------|------------------------------------------|
-| server    | string | Yes      | None                | Minecraft server address (e.g., 9.rwmc.top) |
-| port      | int    | No       | Java: 25565<br>Bedrock: 19132 | Server port number                       |
-| type      | string | Yes      | None                | Server type (Java or be)                 |
 
-**Notes**:
-- `port`: If not provided, defaults to 25565 for Java Edition or 19132 for Bedrock Edition based on the `type`.
-- `type`: Must be `Java` (Java Edition server) or `be` (Bedrock Edition server).
+## 2. 请求参数说明
+| 参数   | 类型   | 必填 | 默认值       | 说明                              |
+|--------|--------|------|--------------|----------------------------------|
+| server | string | 是   | 无           | Minecraft 服务器地址（如 9.rwmc.top） |
+| port   | int    | 否   | Java: 25565<br>Bedrock: 19132 | 服务器端口号                     |
+| type   | string | 是   | 无           | 服务器类型（Java 或 be）         |
 
-## 3. JSON Response Format
+**说明**：
+- `port`：如果未提供，则根据 `type` 设置默认值（Java 版为 25565，Bedrock 版为 19132）。
+- `type`：必须为 `Java`（Java 版服务器）或 `be`（Bedrock 版服务器）。
 
-### Success Response Example (Java Edition Server, Online)
+## 3. JSON 响应格式
+
+### 成功响应示例（Java 版服务器，在线）
 ```json
 {
     "online": true,
@@ -48,7 +52,7 @@ https://zeapi.ink/v1/mcstatus.php?server=9.rwmc.top&port=19132&type=be
             "name": "Leaves_lemwood 1.21.4",
             "protocol": 769
         },
-        "favicon": "data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAq6ElEQVR4Xn16BVRb6dZ25s5MDYuec+LuAiQkgRABgrs7xb3UqLt7...",
+        "favicon": "data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAq6ElEQVR4Xn16BVRb6dZ25s5MDYuec+LuAiQkgRABgrs7xb3UqLt7O22p61...",
         "description": {
             "text": "",
             "extra": [
@@ -155,7 +159,7 @@ https://zeapi.ink/v1/mcstatus.php?server=9.rwmc.top&port=19132&type=be
 }
 ```
 
-### Success Response Example (Bedrock Edition Server, Online)
+### 成功响应示例（Bedrock 版服务器，在线）
 ```json
 {
     "status": "success",
@@ -189,7 +193,7 @@ https://zeapi.ink/v1/mcstatus.php?server=9.rwmc.top&port=19132&type=be
 }
 ```
 
-### Server Offline Example
+### 服务器离线示例
 ```json
 {
     "status": "success",
@@ -202,7 +206,7 @@ https://zeapi.ink/v1/mcstatus.php?server=9.rwmc.top&port=19132&type=be
 }
 ```
 
-### Error Response Example
+### 错误响应示例
 ```json
 {
     "status": "error",
@@ -210,22 +214,22 @@ https://zeapi.ink/v1/mcstatus.php?server=9.rwmc.top&port=19132&type=be
 }
 ```
 
-## 4. Response Fields Description
-| Field                | Type   | Description                                                                 |
-|----------------------|--------|-----------------------------------------------------------------------------|
-| status               | string | Request status (`success` or `error`)                                       |
-| message              | string | Error message (returned only when `status=error`)                          |
-| data.online          | bool   | Whether the server is online                                                |
-| data.host            | string | Server address                                                             |
-| data.port            | int    | Server port number                                                         |
-| data.players_online  | int    | Number of currently online players                                         |
-| data.max_players     | int    | Maximum number of players                                                  |
-| data.motd            | string | Server MOTD (message)                                                      |
-| data.info            | object | Detailed server information (e.g., version, player info, varies by server type) |
-| data.players         | array  | List of online player names (may be empty)                                  |
-| data.encoding        | string | Character encoding of the response data (defaults to UTF-8)                |
-| data.timeout         | int    | Connection timeout (seconds)                                                |
-| data.srv_resolved    | bool   | Whether SRV record resolution was used                                      |
-| data.favicon         | string | Base64-encoded server icon (Java Edition only, null for offline or Bedrock) |
-| data.delay           | int    | Connection delay (milliseconds, Java Edition only, not returned for Bedrock) |
-| data.protocol        | int    | Server protocol version (Java Edition only, not returned for Bedrock)       |
+## 4. 响应字段说明
+| 字段                | 类型   | 说明                                                                 |
+|---------------------|--------|--------------------------------------------------------------------|
+| status              | string | 请求状态（`success` 或 `error`）                                   |
+| message             | string | 错误信息（仅在 `status=error` 时返回）                             |
+| data.online         | bool   | 服务器是否在线                                                     |
+| data.host           | string | 服务器地址                                                         |
+| data.port           | int    | 服务器端口号                                                       |
+| data.players_online | int    | 当前在线玩家数量                                                   |
+| data.max_players    | int    | 最大玩家数量                                                       |
+| data.motd           | string | 服务器 MOTD（消息）                                                |
+| data.info           | object | 服务器详细信息（如版本、玩家信息等，结构因服务器类型而异）         |
+| data.players        | array  | 在线玩家名称列表（可能为空）                                       |
+| data.encoding       | string | 返回数据的字符编码（默认为 UTF-8）                                 |
+| data.timeout        | int    | 连接超时时间（秒）                                                 |
+| data.srv_resolved   | bool   | 是否启用了 SRV 记录解析                                            |
+| data.favicon        | string | 服务器图标的 Base64 编码（仅 Java 版，离线或 Bedrock 版为 null）   |
+| data.delay          | int    | 连接延迟（毫秒，仅 Java 版，Bedrock 版不返回）                     |
+| data.protocol       | int    | 服务器协议版本（仅 Java 版，Bedrock 版不返回）                     |

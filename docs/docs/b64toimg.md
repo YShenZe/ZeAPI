@@ -1,112 +1,113 @@
-# Base64 ⇄ Image Conversion API  
+# Base64 ⇄ 图片
 
-## 1. Basic Usage  
-::: tip  
-The server **does not record** any of your requests nor access your private data!  
-:::  
+## 1. 基本调用
 
-**Base API URL**  
-```url  
-https://zeapi.ink/v1/b64toimg.php  
-```  
+::: tip
+服务器不会记录您的任何请求，也不会窃取您的任何隐私！
+:::
 
-**Convert Base64 to Image via GET Request:**  
-```url  
-https://zeapi.ink/v1/b64toimg.php?base64=<base64_to_decode>&type=jpeg  
-```  
+**基本API地址**
 
-**Convert Image to Base64 via POST Request:**  
-Upload an image file using `form-data` with the field name **`"image"`**.  
+```txt
+https://zeapi.ink/v1/b64toimg.php
+```
 
-**Shell Request Example:**  
-```shell  
-curl -X POST https://zeapi.ink/v1/b64toimg.php -F "image=@/path/to/file"  
-```  
+**通过GET请求将base64转换为图片：**
 
----  
+```txt
+https://zeapi.ink/v1/b64toimg.php?base64=<要解码的base64内容>&type=jpeg
+```
 
-## 2. Request Parameters  
+**通过POST请求将图片转换为base64：**
+使用form-data上传图片文件，字段名为"image"
 
-**GET Request Parameters:**  
-| Parameter | Type   | Required | Default | Description                     |  
-|-----------|--------|----------|---------|---------------------------------|  
-| `base64`  | string | Yes      | None    | Base64-encoded image data       |  
-| `type`    | string | Yes      | None    | Image type (e.g., jpeg, png, gif, bmp) |  
+**Shell请求代码如下**
+```shell
+curl -X POST https://zeapi.ink/v1/b64toimg.php -F "image=@文件路径"
+```
 
-**POST Request:**  
-Upload an image file with the field name **`"image"`**.  
+## 2. 请求参数说明
 
----  
+**GET请求参数：**
+| 参数   | 类型   | 必填 | 默认值 | 说明                        |
+|--------|--------|------|--------|----------------------------|
+| base64 | string | 是   | 无     | base64编码的图片数据       |
+| type   | string | 是   | 无     | 图片类型，如jpeg, png, gif, bmp |
 
-## 3. Response Format  
+**POST请求：**
+上传图片文件，字段名为"image"
 
-**GET Request:**  
-- **Success**: Returns binary image data with `Content-Type: image/[type]`.  
-- **Failure**: Returns JSON error message.  
+## 3. 响应格式
 
-**Error Examples:**  
-```json  
-// Missing parameters  
-{  
-    "status": "error",  
-    "message": "Missing base64 or type parameter"  
-}  
+**GET请求：**
+- **成功时**：返回图片二进制数据，`Content-Type`为`image/[type]`  
+- **失败时**：返回JSON格式的错误信息
 
-// Unsupported image type  
-{  
-    "status": "error",  
-    "message": "Unsupported image type. Supported types: jpeg, png, gif, bmp"  
-}  
+**错误响应示例（缺少参数）：**
+```json
+{
+    "status": "error",
+    "message": "Missing base64 or type parameter"
+}
+```
 
-// Invalid Base64  
-{  
-    "status": "error",  
-    "message": "Invalid base64 string"  
-}  
-```  
+**错误响应示例（不支持的图片类型）：**
+```json
+{
+    "status": "error",
+    "message": "Unsupported image type. Supported types: jpeg, png, gif, bmp"
+}
+```
 
-**POST Request:**  
-- **Success**: Returns JSON with Base64 string and MIME type.  
-**Example:**  
-```json  
-{  
-    "status": "success",  
-    "base64": "encoded_string",  
-    "type": "image/jpeg"  
-}  
-```  
+**错误响应示例（无效的base64字符串）：**
+```json
+{
+    "status": "error",
+    "message": "Invalid base64 string"
+}
+```
 
-- **Failure**: Returns JSON error message.  
-**Error Examples:**  
-```json  
-// No image uploaded  
-{  
-    "status": "error",  
-    "message": "No image uploaded or upload error"  
-}  
+**POST请求：**
+- **成功时**：返回JSON格式的base64编码和图片类型  
+**成功响应示例：**
+```json
+{
+    "status": "success",
+    "base64": "encoded_string",
+    "type": "image/jpeg"
+}
+```
 
-// Non-image file  
-{  
-    "status": "error",  
-    "message": "Uploaded file is not an image"  
-}  
-```  
+- **失败时**：返回JSON格式的错误信息  
+**错误响应示例（未上传图片）：**
+```json
+{
+    "status": "error",
+    "message": "No image uploaded or upload error"
+}
+```
 
----  
+**错误响应示例（上传的文件不是图片）：**
+```json
+{
+    "status": "error",
+    "message": "Uploaded file is not an image"
+}
+```
 
-## 4. Response Field Descriptions  
+## 4. 响应字段说明
 
-**POST Success Response:**  
-| Field   | Type   | Description                     |  
-|---------|--------|---------------------------------|  
-| `status` | string | `success`                       |  
-| `base64` | string | Base64-encoded image data       |  
-| `type`   | string | MIME type (e.g., `image/jpeg`) |  
+**POST请求成功响应：**
+| 字段   | 类型   | 说明                        |
+|--------|--------|----------------------------|
+| status | string | 请求状态，success          |
+| base64 | string | base64编码的图片数据       |
+| type   | string | 图片的MIME类型，如image/jpeg |
 
-**Error Response:**  
-| Field     | Type   | Description   |  
-|-----------|--------|---------------|  
-| `status`  | string | `error`       |  
-| `message` | string | Error details |  
+**错误响应：**
+| 字段    | 类型   | 说明                        |
+|---------|--------|----------------------------|
+| status  | string | 请求状态，error            |
+| message | string | 错误信息                   |
 
----  
+---

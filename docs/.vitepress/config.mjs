@@ -3,34 +3,30 @@ import { figure } from '@mdit/plugin-figure'
 import { Feed } from 'feed'
 
 export default defineConfig({
-  // ========== 全局共享配置 ==========
+  // ========== Global Configuration ==========
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg' }],
-    // RSS 自动发现
+    // RSS Auto-Discovery
     ['link', { 
       rel: 'alternate',
       type: 'application/rss+xml',
       title: 'ZeAPI Documentation Updates',
       href: '/feed.rss'
     }],
-    ['link', { 
-      rel: 'alternate',
-      type: 'application/rss+xml',
-      title: '梦泽API文档更新',
-      href: '/zh/feed.rss'
-    }],
-    // SEO 优化
+    // SEO Optimization
     ['meta', { name: 'author', content: 'ZeAPI Team' }],
     ['meta', { name: 'keywords', content: 'API, public API, free API, ZeAPI, documentation, REST API, web services' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:creator', content: '@zeapi' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    // Material Design Icons
+    ['link', { rel: 'stylesheet', href: 'https://cdn.mengze.vip/npm/@mdi/font@latest/css/materialdesignicons.min.css' }]
   ],
   lastUpdated: true,
   appearance: 'dark',
   
-  // ========== 内置 Sitemap 配置 ==========
+  // ========== Sitemap Configuration ==========
   sitemap: {
     hostname: 'https://zeapi.ink',
   },
@@ -44,219 +40,112 @@ export default defineConfig({
       dark: 'dracula'
     },
     lineNumbers: true,
-    // 图片优化配置
     image: {
-      lazy: true,       // 启用懒加载
-      webp: true,       // 自动生成 WebP
-      sizes: '100vw',   // 响应式尺寸
-      decoding: 'async', // 异步解码
-      loading: 'lazy',  // 原生懒加载
-      quality: 85       // 图片质量
+      lazy: true,       // Enable lazy loading
+      webp: true,       // Auto-generate WebP
+      sizes: '100vw',   // Responsive sizes
+      decoding: 'async', // Async decoding
+      loading: 'lazy',  // Native lazy loading
+      quality: 85       // Image quality
     }
   },
 
-  // ========== 多语言配置 ==========
+  // ========== Multi-Language Configuration ==========
   locales: {
     root: {
-      label: 'English',
-      lang: 'en-US',
-      title: 'ZeAPI Documentation',
-      titleTemplate: ':title | ZeAPI',
-      description: 'Comprehensive API documentation for ZeAPI services',
-      link: '/',
-      themeConfig: {
-        siteTitle: 'ZeAPI',
-        // 移动端导航标签
-        mobileNav: {
-          text: 'Menu',
-          openIcon: 'i-material-symbols-menu',
-          closeIcon: 'i-material-symbols-close'
-        },
-        // SEO 增强配置
-        seo: {
-          title: 'ZeAPI - Free Public API Services',
-          description: 'API documentation for ZeAPI services including domain whois, QR code generation, IP geolocation, Minecraft server status and more.',
-          ogImage: '/favicon.svg',
-          twitterCard: 'summary_large_image',
-          canonicalUrl: 'https://zeapi.ink',
-          ogUrl: 'https://zeapi.ink',
-          ogType: 'website'
-        },
-        nav: [
-          { text: 'Home', link: '/' },
-          {
-            text: 'API List',
-            items: [
-              { text: 'All APIs', link: '/docs' },
-              { text: 'Today in History', link: '/docs/today' },
-              { text: 'Random Quote', link: '/docs/onesay' },
-              { text: 'Domain Whois & Pricing', link: '/docs/whois' },
-              { text: 'QR Code Generator', link: '/docs/qrcode' },
-              { text: 'QQ Nickname & Avatar', link: '/docs/qqinfo' },
-              { text: 'Minecraft Server Status', link: '/docs/mcstatus' },
-              { text: 'TOTP Generator', link: '/docs/key2otp' },
-              { text: 'Minecraft Skin/Cape', link: '/docs/mcinfo' },
-              { text: 'ICP Lookup', link: '/docs/icpquery' },
-              { text: 'IP Geolocation', link: '/docs/ipseek' },
-              { text: 'Base64 ⇄ Text', link: '/docs/b64totext' },
-              { text: 'Base64 ⇄ Image', link: '/docs/b64toimg' },
-              { text: 'Random Anime Pic', link: '/docs/sjecy' },
-              { text: 'Random Meme Pic', link: '/docs/sjmeme' },
-              { text: 'PBKDF2 Generator', link: '/docs/pbkdf2' },
-              { text: 'QQ Forced Redirect', link: '/docs/qzztqq' },
-              { text: 'Bing Daily Wallpaper', link: '/docs/bingpic' },
-            ],
-          },
-          { text: 'About Me', link: '/team' },
-          { text: 'GitHub', link: 'https://github.com/yshenze/zeapi' },
-          { text: 'Blog', link: 'https://mengze.vip/' },
-          { text: 'ShortURL', link: 'https://mzurl.xyz' },
-        ],
-        sidebar: {
-          '/docs/': [
-            {
-              text: 'APIs',
-              collapsed: false,
-              items: [
-                { text: 'Today in History', link: '/docs/today' },
-                { text: 'Random Quote', link: '/docs/onesay' },
-                { text: 'Domain Whois & Pricing', link: '/docs/whois' },
-                { text: 'QR Code Generator', link: '/docs/qrcode' },
-                { text: 'QQ Nickname & Avatar', link: '/docs/qqinfo' },
-                { text: 'Minecraft Server Status', link: '/docs/mcstatus' },
-                { text: 'TOTP Generator', link: '/docs/key2otp' },
-                { text: 'Minecraft Skin/Cape', link: '/docs/mcinfo' },
-                { text: 'ICP Lookup', link: '/docs/icpquery' },
-                { text: 'IP Geolocation', link: '/docs/ipseek' },
-                { text: 'Base64 ⇄ Text', link: '/docs/b64totext' },
-                { text: 'Base64 ⇄ Image', link: '/docs/b64toimg' },
-                { text: 'Random Anime Pic', link: '/docs/sjecy' },
-                { text: 'Random Meme Pic', link: '/docs/sjmeme' },
-                { text: 'PBKDF2 Generator', link: '/docs/pbkdf2' },
-                { text: 'QQ Forced Redirect', link: '/docs/qzztqq' },
-              { text: 'Bing Daily Wallpaper', link: '/docs/bingpic' },
-              ],
-            },
-            {
-              text: 'Other',
-              items: [
-                { text: 'About Me', link: '/team' }
-              ]
-            }
-          ]
-        },
-        editLink: {
-          pattern: 'https://github.com/yshenze/zeapi/edit/main/docs/:path',
-          text: 'Edit this page on GitHub'
-        },
-        footer: {
-          message: 'Released under the MIT License.',
-          copyright: `Copyright © 2024-${new Date().getFullYear()} ZeAPI Team`,
-        },
-        lastUpdated: {
-          text: 'Last updated',
-          formatOptions: {
-            dateStyle: 'full',
-            timeStyle: 'medium'
-          }
-        },
-        docFooter: {
-          prev: 'Previous',
-          next: 'Next'
-        },
-        outline: {
-          level: 'deep',
-          label: 'On this page'
-        },
-        returnToTopLabel: 'Return to top',
-        darkModeSwitchLabel: 'Appearance',
-      }
-    },
-    
-    zh: {
       label: '简体中文',
       lang: 'zh-CN',
-      link: '/zh/',
       title: '梦泽公共API文档',
       titleTemplate: ':title | 梦泽API',
       description: 'ZeAPI 服务的 API 文档',
+      link: '/',
+      head: [
+        ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+        ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+        ['link', { href: 'https://fonts.googleapis.com/css2?family=Source+Han+Sans+SC:wght@400&display=swap', rel: 'stylesheet' }],
+        ['style', {}, 'body { font-family: "Source Han Sans SC", sans-serif; }'],
+      ],
       themeConfig: {
         siteTitle: '梦泽API',
-        // 移动端导航标签
         mobileNav: {
           text: '菜单',
           openIcon: 'i-material-symbols-menu',
           closeIcon: 'i-material-symbols-close'
         },
-        // SEO 增强配置
         seo: {
           title: '梦泽API - 免费公共服务接口',
           description: '提供域名查询、二维码生成、IP定位、我的世界信息查询、ICP备案查询等API服务',
-          ogImage: '/zh/favicon.svg',
+          ogImage: '/favicon.svg',
           twitterCard: 'summary_large_image',
-          canonicalUrl: 'https://zeapi.ink/zh/',
-          ogUrl: 'https://zeapi.ink/zh/',
+          canonicalUrl: 'https://zeapi.ink/',
+          ogUrl: 'https://zeapi.ink/',
           ogType: 'website'
         },
         nav: [
-          { text: '首页', link: '/zh/' },
+          { text: '<i class="mdi mdi-home" aria-hidden="true"></i> 首页', link: '/' },
           {
-            text: '接口列表',
+            text: '<i class="mdi mdi-api" aria-hidden="true"></i> 接口列表',
             items: [
-              { text: '所有接口总览', link: '/zh/docs' },
-              { text: '历史上的今天', link: '/zh/docs/today' },
-              { text: '随机一言', link: '/zh/docs/onesay' },
-              { text: '域名 Whois + 查价', link: '/zh/docs/whois' },
-              { text: '二维码生成', link: '/zh/docs/qrcode' },
-              { text: '获取 QQ 昵称和头像', link: '/zh/docs/qqinfo' },
-              { text: '我的世界服务器信息获取', link: '/zh/docs/mcstatus' },
-              { text: 'TOTP 临时密码生成', link: '/zh/docs/key2otp' },
-              { text: '我的世界皮肤/披风链接获取', link: '/zh/docs/mcinfo' },
-              { text: '域名 ICP 备案查询', link: '/zh/docs/icpquery' },
-              { text: 'IP 地址归属地查询', link: '/zh/docs/ipseek' },
-              { text: 'Base64 ⇄ 文本', link: '/zh/docs/b64totext' },
-              { text: 'Base64 ⇄ 图片', link: '/zh/docs/b64toimg' },
-              { text: '随机二次元图片', link: '/zh/docs/sjecy' },
-              { text: '随机 Meme 图片', link: '/zh/docs/sjmeme' },
-              { text: 'PBKDF2 零知识密码生成', link: '/zh/docs/pbkdf2' },
-              { text: 'QQ 强制转跳', link: '/docs/qzztqq' },
-              { text: 'Bing 每日壁纸', link: '/docs/bingpic' },
+              { text: '<i class="mdi mdi-view-list" aria-hidden="true"></i> 所有接口总览', link: '/docs' },
+              { text: '<i class="mdi mdi-calendar" aria-hidden="true"></i> 历史上的今天', link: '/docs/today' },
+              { text: '<i class="mdi mdi-comment-quote" aria-hidden="true"></i> 随机一言', link: '/docs/onesay' },
+              { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> 域名 Whois + 查价', link: '/docs/whois' },
+              { text: '<i class="mdi mdi-qrcode" aria-hidden="true"></i> 二维码生成', link: '/docs/qrcode' },
+              { text: '<i class="mdi mdi-account" aria-hidden="true"></i> 获取 QQ 昵称和头像', link: '/docs/qqinfo' },
+              { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> 我的世界服务器信息获取', link: '/docs/mcstatus' },
+              { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP 临时密码生成', link: '/docs/key2otp' },
+              { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> 我的世界皮肤/披风链接获取', link: '/docs/mcinfo' },
+              { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> 域名 ICP 备案查询', link: '/docs/icpquery' },
+              { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP 地址归属地查询', link: '/docs/ipseek' },
+              { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ 文本', link: '/docs/b64totext' },
+              { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ 图片', link: '/docs/b64toimg' },
+              { text: '<i class="mdi mdi-animation" aria-hidden="true"></i> 随机二次元图片', link: '/docs/sjecy' },
+              { text: '<i class="mdi mdi-emoticon" aria-hidden="true"></i> 随机 Meme 图片', link: '/docs/sjmeme' },
+              { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 零知识密码生成', link: '/docs/pbkdf2' },
+              { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ 强制转跳', link: '/docs/qzztqq' },
+              { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Bing 每日壁纸', link: '/docs/bingpic' },
+              { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> 抖音热搜', link: '/docs/douyin' },
+              { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> 百度热点', link: '/docs/baidu' },
+              { text: '<i class="mdi mdi-shield-check" aria-hidden="true"></i> 微信域名拦截检测', link: '/docs/txljjc' },
             ],
           },
-          { text: '关于本站', link: '/zh/team' },
-          { text: 'GitHub', link: 'https://github.com/yshenze/zeapi' },
-          { text: '站长博客', link: 'https://mengze.vip/' },
-          { text: '公共短链接服务', link: 'https://mzurl.xyz' },
+          { text: '<i class="mdi mdi-information" aria-hidden="true"></i> 关于本站', link: '/team' },
+          { text: '<i class="mdi mdi-github" aria-hidden="true"></i> GitHub', link: 'https://github.com/yshenze/zeapi' },
+          { text: '<i class="mdi mdi-web" aria-hidden="true"></i> 站长博客', link: 'https://mengze.vip/' },
+          { text: '<i class="mdi mdi-link" aria-hidden="true"></i> 公共短链接服务', link: 'https://mzurl.xyz' },
         ],
         sidebar: {
-          '/zh/docs/': [
+          '/docs/': [
             {
-              text: '接口列表',
+              text: '<i class="mdi mdi-api" aria-hidden="true"></i> 接口列表',
               collapsed: false,
               items: [
-                { text: '历史上的今天', link: '/zh/docs/today' },
-                { text: '随机一言', link: '/zh/docs/onesay' },
-                { text: '域名 Whois + 查价', link: '/zh/docs/whois' },
-                { text: '二维码生成', link: '/zh/docs/qrcode' },
-                { text: '获取 QQ 昵称和头像', link: '/zh/docs/qqinfo' },
-                { text: '我的世界服务器信息获取', link: '/zh/docs/mcstatus' },
-                { text: 'TOTP 临时密码生成', link: '/zh/docs/key2otp' },
-                { text: '我的世界皮肤/披风链接获取', link: '/zh/docs/mcinfo' },
-                { text: '域名 ICP 备案查询', link: '/zh/docs/icpquery' },
-                { text: 'IP 地址归属地查询', link: '/zh/docs/ipseek' },
-                { text: 'Base64 ⇄ 文本', link: '/zh/docs/b64totext' },
-                { text: 'Base64 ⇄ 图片', link: '/zh/docs/b64toimg' },
-                { text: '随机二次元图片', link: '/zh/docs/sjecy' },
-                { text: '随机 Meme 图片', link: '/zh/docs/sjmeme' },
-                { text: 'PBKDF2 零知识密码生成', link: '/zh/docs/pbkdf2' },
-                { text: 'QQ 强制转跳', link: '/docs/qzztqq' },
-                { text: 'Bing 每日壁纸', link: '/docs/bingpic' },
+                { text: '<i class="mdi mdi-calendar" aria-hidden="true"></i> 历史上的今天', link: '/docs/today' },
+                { text: '<i class="mdi mdi-comment-quote" aria-hidden="true"></i> 随机一言', link: '/docs/onesay' },
+                { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> 域名 Whois + 查价', link: '/docs/whois' },
+                { text: '<i class="mdi mdi-qrcode" aria-hidden="true"></i> 二维码生成', link: '/docs/qrcode' },
+                { text: '<i class="mdi mdi-account" aria-hidden="true"></i> 获取 QQ 昵称和头像', link: '/docs/qqinfo' },
+                { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> 我的世界服务器信息获取', link: '/docs/mcstatus' },
+                { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP 临时密码生成', link: '/docs/key2otp' },
+                { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> 我的世界皮肤/披风链接获取', link: '/docs/mcinfo' },
+                { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> 域名 ICP 备案查询', link: '/docs/icpquery' },
+                { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP 地址归属地查询', link: '/docs/ipseek' },
+                { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ 文本', link: '/docs/b64totext' },
+                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ 图片', link: '/docs/b64toimg' },
+                { text: '<i class="mdi mdi-animation" aria-hidden="true"></i> 随机二次元图片', link: '/docs/sjecy' },
+                { text: '<i class="mdi mdi-emoticon" aria-hidden="true"></i> 随机 Meme 图片', link: '/docs/sjmeme' },
+                { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 零知识密码生成', link: '/docs/pbkdf2' },
+                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ 强制转跳', link: '/docs/qzztqq' },
+                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Bing 每日壁纸', link: '/docs/bingpic' },
+                { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> 抖音热搜', link: '/docs/douyin' },
+                { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> 百度热点', link: '/docs/baidu' },
+                { text: '<i class="mdi mdi-shield-check" aria-hidden="true"></i> 微信域名拦截检测', link: '/docs/txljjc' },
               ],
             },
             {
-              text: '其他',
+              text: '<i class="mdi mdi-information" aria-hidden="true"></i> 其他',
               items: [
-                { text: '关于本站', link: '/zh/team' }
+                { text: '<i class="mdi mdi-information" aria-hidden="true"></i> 关于本站', link: '/team' }
               ]
             }
           ]
@@ -287,41 +176,143 @@ export default defineConfig({
         returnToTopLabel: '返回顶部',
         darkModeSwitchLabel: '外观',
       }
+    },
+    
+    en: {
+      label: 'English',
+      lang: 'en-US',
+      title: 'ZeAPI Documentation',
+      titleTemplate: ':title | ZeAPI',
+      description: 'Comprehensive API documentation for ZeAPI services',
+      link: '/en/',
+      head: [],
+      themeConfig: {
+        siteTitle: 'ZeAPI',
+        mobileNav: {
+          text: 'Menu',
+          openIcon: 'i-material-symbols-menu',
+          closeIcon: 'i-material-symbols-close'
+        },
+        seo: {
+          title: 'ZeAPI - Free Public API Services',
+          description: 'API documentation for ZeAPI services including domain whois, QR code generation, IP geolocation, Minecraft server status and more.',
+          ogImage: '/en/favicon.svg',
+          twitterCard: 'summary_large_image',
+          canonicalUrl: 'https://zeapi.ink/en/',
+          ogUrl: 'https://zeapi.ink/en/',
+          ogType: 'website'
+        },
+        nav: [
+          { text: '<i class="mdi mdi-home" aria-hidden="true"></i> Home', link: '/en/' },
+          {
+            text: '<i class="mdi mdi-api" aria-hidden="true"></i> API List',
+            items: [
+              { text: '<i class="mdi mdi-view-list" aria-hidden="true"></i> All APIs', link: '/en/docs' },
+              { text: '<i class="mdi mdi-calendar" aria-hidden="true"></i> Today in History', link: '/en/docs/today' },
+              { text: '<i class="mdi mdi-comment-quote" aria-hidden="true"></i> Random Quote', link: '/en/docs/onesay' },
+              { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> Domain Whois & Pricing', link: '/en/docs/whois' },
+              { text: '<i class="mdi mdi-qrcode" aria-hidden="true"></i> QR Code Generator', link: '/en/docs/qrcode' },
+              { text: '<i class="mdi mdi-account" aria-hidden="true"></i> QQ Nickname & Avatar', link: '/en/docs/qqinfo' },
+              { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> Minecraft Server Status', link: '/en/docs/mcstatus' },
+              { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP Generator', link: '/en/docs/key2otp' },
+              { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> Minecraft Skin/Cape', link: '/en/docs/mcinfo' },
+              { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> ICP Lookup', link: '/en/docs/icpquery' },
+              { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP Geolocation', link: '/en/docs/ipseek' },
+              { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ Text', link: '/en/docs/b64totext' },
+              { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ Image', link: '/en/docs/b64toimg' },
+              { text: '<i class="mdi mdi-animation" aria-hidden="true"></i> Random Anime Pic', link: '/en/docs/sjecy' },
+              { text: '<i class="mdi mdi-emoticon" aria-hidden="true"></i> Random Meme Pic', link: '/en/docs/sjmeme' },
+              { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 Generator', link: '/en/docs/pbkdf2' },
+              { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ Forced Redirect', link: '/en/docs/qzztqq' },
+              { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Bing Daily Wallpaper', link: '/en/docs/bingpic' },
+              { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> Douyin Hot Search', link: '/en/docs/douyin' },
+              { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> Baidu Hot Search', link: '/en/docs/baidu' },
+              { text: '<i class="mdi mdi-shield-check" aria-hidden="true"></i> WeChat Domain Block Detection', link: '/en/docs/txljjc' },
+            ],
+          },
+          { text: '<i class="mdi mdi-information" aria-hidden="true"></i> About Me', link: '/en/team' },
+          { text: '<i class="mdi mdi-github" aria-hidden="true"></i> GitHub', link: 'https://github.com/yshenze/zeapi' },
+          { text: '<i class="mdi mdi-web" aria-hidden="true"></i> Blog', link: 'https://mengze.vip/' },
+          { text: '<i class="mdi mdi-link" aria-hidden="true"></i> ShortURL', link: 'https://mzurl.xyz' },
+        ],
+        sidebar: {
+          '/en/docs/': [
+            {
+              text: '<i class="mdi mdi-api" aria-hidden="true"></i> APIs',
+              collapsed: false,
+              items: [
+                { text: '<i class="mdi mdi-calendar" aria-hidden="true"></i> Today in History', link: '/en/docs/today' },
+                { text: '<i class="mdi mdi-comment-quote" aria-hidden="true"></i> Random Quote', link: '/en/docs/onesay' },
+                { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> Domain Whois & Pricing', link: '/en/docs/whois' },
+                { text: '<i class="mdi mdi-qrcode" aria-hidden="true"></i> QR Code Generator', link: '/en/docs/qrcode' },
+                { text: '<i class="mdi mdi-account" aria-hidden="true"></i> QQ Nickname & Avatar', link: '/en/docs/qqinfo' },
+                { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> Minecraft Server Status', link: '/en/docs/mcstatus' },
+                { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP Generator', link: '/en/docs/key2otp' },
+                { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> Minecraft Skin/Cape', link: '/en/docs/mcinfo' },
+                { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> ICP Lookup', link: '/en/docs/icpquery' },
+                { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP Geolocation', link: '/en/docs/ipseek' },
+                { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ Text', link: '/en/docs/b64totext' },
+                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ Image', link: '/en/docs/b64toimg' },
+                { text: '<i class="mdi mdi-animation" aria-hidden="true"></i> Random Anime Pic', link: '/en/docs/sjecy' },
+                { text: '<i class="mdi mdi-emoticon" aria-hidden="true"></i> Random Meme Pic', link: '/en/docs/sjmeme' },
+                { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 Generator', link: '/en/docs/pbkdf2' },
+                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ Forced Redirect', link: '/en/docs/qzztqq' },
+                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Bing Daily Wallpaper', link: '/en/docs/bingpic' },
+                { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> Douyin Hot Search', link: '/en/docs/douyin' },
+                { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> Baidu Hot Search', link: '/en/docs/baidu' },
+                { text: '<i class="mdi mdi-shield-check" aria-hidden="true"></i> WeChat Domain Block Detection', link: '/en/docs/txljjc' },
+              ],
+            },
+            {
+              text: '<i class="mdi mdi-information" aria-hidden="true"></i> Other',
+              items: [
+                { text: '<i class="mdi mdi-information" aria-hidden="true"></i> About Me', link: '/en/team' }
+              ]
+            }
+          ]
+        },
+        editLink: {
+          pattern: 'https://github.com/yshenze/zeapi/edit/main/docs/:path',
+          text: 'Edit this page on GitHub'
+        },
+        footer: {
+          message: 'Released under the MIT License.',
+          copyright: `Copyright © 2024-${new Date().getFullYear()} ZeAPI Team`,
+        },
+        lastUpdated: {
+          text: 'Last updated',
+          formatOptions: {
+            dateStyle: 'full',
+            timeStyle: 'medium'
+          }
+        },
+        docFooter: {
+          prev: 'Previous',
+          next: 'Next'
+        },
+        outline: {
+          level: 'deep',
+          label: 'On this page'
+        },
+        returnToTopLabel: 'Return to top',
+        darkModeSwitchLabel: 'Appearance',
+      }
     }
   },
 
-  // ========== 全局主题配置 ==========
+  // ========== Global Theme Configuration ==========
   themeConfig: {
     logo: '/favicon.svg',
     
-    // 搜索功能增强
     search: {
       provider: 'local',
       options: {
-        detailedView: true,  // 显示详细搜索结果
+        detailedView: true,
         disableQueryPersistence: false,
         maxSuggestions: 10,
         locales: {
           root: {
-            placeholder: 'Search documentation...', // 搜索框提示文本
-            translations: {
-              button: {
-                buttonText: 'Search...',
-                buttonAriaLabel: 'Search'
-              },
-              modal: {
-                noResultsText: 'No results for',
-                resetButtonTitle: 'Reset search',
-                footer: {
-                  selectText: 'to select',
-                  navigateText: 'to navigate',
-                  closeText: 'to close'
-                }
-              }
-            }
-          },
-          zh: {
-            placeholder: '搜索文档...', // 中文搜索框提示
+            placeholder: '搜索文档...',
             translations: {
               button: {
                 buttonText: '搜索文档...',
@@ -334,6 +325,24 @@ export default defineConfig({
                   selectText: '选择',
                   navigateText: '切换',
                   closeText: '关闭'
+                }
+              }
+            }
+          },
+          en: {
+            placeholder: 'Search documentation...',
+            translations: {
+              button: {
+                buttonText: 'Search...',
+                buttonAriaLabel: 'Search'
+              },
+              modal: {
+                noResultsText: 'No results for',
+                resetButtonTitle: 'Reset search',
+                footer: {
+                  selectText: 'to select',
+                  navigateText: 'to navigate',
+                  closeText: 'to close'
                 }
               }
             }
@@ -354,8 +363,8 @@ export default defineConfig({
     
     localeLinks: {
       items: [
-        { text: 'English', link: '/' },
-        { text: '简体中文', link: '/zh/' }
+        { text: '简体中文', link: '/' },
+        { text: 'English', link: '/en/' }
       ]
     },
     
@@ -377,7 +386,6 @@ export default defineConfig({
       }
     },
     
-    // 社交媒体分享功能
     socialShare: {
       networks: [
         { name: 'twitter', icon: 'i-ri-twitter-x-fill', color: '#000000' },
@@ -391,7 +399,7 @@ export default defineConfig({
     }
   },
 
-  // ========== 构建优化 ==========
+  // ========== Build Optimization ==========
   build: {
     minify: 'terser',
     cssCodeSplit: true,
@@ -407,97 +415,87 @@ export default defineConfig({
     }
   },
   
-  // ========== 缓存配置 ==========
+  // ========== Cache Configuration ==========
   cacheDir: './.vitepress/.vite',
   
-  // ========== RSS 配置 (使用 feed 包) ==========
-async buildEnd(siteConfig) {
-  const { pages, outDir } = siteConfig
-  const baseUrl = 'https://zeapi.ink'
-  
-  // 创建英文 RSS feed
-  const enFeed = new Feed({
-    title: 'ZeAPI Documentation Updates',
-    description: 'Latest updates to ZeAPI documentation',
-    id: baseUrl,
-    link: baseUrl,
-    language: 'en',
-    image: `${baseUrl}/logo.png`,
-    favicon: `${baseUrl}/favicon.ico`,
-    copyright: `Copyright © ${new Date().getFullYear()} ZeAPI Team`,
-    updated: new Date(),
-    generator: 'Feed for Node.js',
-  })
-  
-  // 创建中文 RSS feed
-  const zhFeed = new Feed({
-    title: '梦泽API文档更新',
-    description: '梦泽API文档的最新更新',
-    id: `${baseUrl}/zh/`,
-    link: `${baseUrl}/zh/`,
-    language: 'zh',
-    image: `${baseUrl}/zh/logo.png`,
-    favicon: `${baseUrl}/favicon.ico`,
-    copyright: `版权所有 © ${new Date().getFullYear()} ZeAPI 团队`,
-    updated: new Date(),
-    generator: 'Feed for Node.js',
-  })
-  
-  // 安全过滤页面
-  const validPages = pages.filter(page => 
-    page && 
-    page.path && 
-    typeof page.path === 'string'
-  )
-  
-  // 添加页面到 RSS
-  validPages
-    .filter(page => 
-      !page.path.startsWith('/404') && 
-      !page.path.startsWith('/private'))
-    .forEach(page => {
-      // 添加默认值防止属性缺失
-      const item = {
-        title: page.title || 'Untitled',
-        id: `${baseUrl}${page.path}`,
-        link: `${baseUrl}${page.path}`,
-        description: page.description || 'No description available',
-        date: page.lastUpdated ? new Date(page.lastUpdated) : new Date(),
-      }
-      
-      // 根据语言添加到对应的 feed
-      if (page.lang === 'en-US') {
-        enFeed.addItem(item)
-      } else if (page.lang === 'zh-CN') {
-        zhFeed.addItem(item)
-      }
+  // ========== RSS Configuration (using feed package) ==========
+  async buildEnd(siteConfig) {
+    const { pages, outDir } = siteConfig
+    const baseUrl = 'https://zeapi.ink'
+    
+    const zhFeed = new Feed({
+      title: '梦泽API文档更新',
+      description: '梦泽API文档的最新更新',
+      id: baseUrl,
+      link: baseUrl,
+      language: 'zh',
+      image: `${baseUrl}/logo.png`,
+      favicon: `${baseUrl}/favicon.ico`,
+      copyright: `版权所有 © ${new Date().getFullYear()} ZeAPI 团队`,
+      updated: new Date(),
+      generator: 'Feed for Node.js',
     })
-  
-  // 写入 RSS 文件
-  const fs = await import('fs')
-  const path = await import('path')
-  
-  // 确保目录存在
-  const zhDir = path.join(outDir, 'zh')
-  if (!fs.existsSync(zhDir)) {
-    fs.mkdirSync(zhDir, { recursive: true })
-  }
-  
-  // 写入英文 RSS
-  fs.writeFileSync(
-    path.join(outDir, 'feed.rss'),
-    enFeed.rss2()
-  )
-  
-  // 写入中文 RSS
-  fs.writeFileSync(
-    path.join(outDir, 'zh', 'feed.rss'),
-    zhFeed.rss2()
-  )
-  
-  console.log('RSS feeds generated successfully!')
-},  
-  // ========== PWA 支持 ==========
+    
+    const enFeed = new Feed({
+      title: 'ZeAPI Documentation Updates',
+      description: 'Latest updates to ZeAPI documentation',
+      id: `${baseUrl}/en/`,
+      link: `${baseUrl}/en/`,
+      language: 'en',
+      image: `${baseUrl}/en/logo.png`,
+      favicon: `${baseUrl}/favicon.ico`,
+      copyright: `Copyright © ${new Date().getFullYear()} ZeAPI Team`,
+      updated: new Date(),
+      generator: 'Feed for Node.js',
+    })
+    
+    const validPages = pages.filter(page => 
+      page && 
+      page.path && 
+      typeof page.path === 'string'
+    )
+    
+    validPages
+      .filter(page => 
+        !page.path.startsWith('/404') && 
+        !page.path.startsWith('/private'))
+      .forEach(page => {
+        const item = {
+          title: page.title || 'Untitled',
+          id: `${baseUrl}${page.path}`,
+          link: `${baseUrl}${page.path}`,
+          description: page.description || 'No description available',
+          date: page.lastUpdated ? new Date(page.lastUpdated) : new Date(),
+        }
+        
+        if (page.path.startsWith('/en/')) {
+          enFeed.addItem(item)
+        } else {
+          zhFeed.addItem(item)
+        }
+      })
+    
+    const fs = await import('fs')
+    const path = await import('path')
+    
+    const enDir = path.join(outDir, 'en')
+    if (!fs.existsSync(enDir)) {
+      fs.mkdirSync(enDir, { recursive: true })
+    }
+    
+    fs.writeFileSync(
+      path.join(outDir, 'feed.rss'),
+      zhFeed.rss2()
+    )
+    
+    fs.writeFileSync(
+      path.join(outDir, 'en', 'feed.rss'),
+      enFeed.rss2()
+    )
+    
+    console.log('RSS feeds generated successfully!')
+  },  
+  // ========== PWA Support ==========
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
@@ -528,7 +526,21 @@ async buildEnd(siteConfig) {
             cacheName: 'google-fonts-cache',
             expiration: {
               maxEntries: 10,
-              maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+              maxAgeSeconds: 60 * 60 * 24 * 365
+            },
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        },
+        {
+          urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'google-fonts-static-cache',
+            expiration: {
+              maxEntries: 20,
+              maxAgeSeconds: 60 * 60 * 24 * 365
             },
             cacheableResponse: {
               statuses: [0, 200]

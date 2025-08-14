@@ -1,21 +1,22 @@
-# QR Code Generation
+# 二维码生成
 
-## 1. Basic Usage
-Generate a QR code image using the following URL:
-```url
+## 1. 基本调用
+通过以下 URL 生成 QR 码图片：
+
+```txt
 https://zeapi.ink/v1/qrcode.php?text=梦泽&size=100&margin=4&format=jpg
 ```
 
-## 2. Request Parameters
-| Parameter | Type   | Required | Default Value | Description                              |
-|-----------|--------|----------|---------------|------------------------------------------|
-| text      | string | Yes      | None          | Text content to encode                   |
-| size      | int    | No       | 100           | QR code image size (pixels, equal width and height) |
-| margin    | int    | No       | 4             | QR code margin (pixels)                  |
-| format    | string | No       | jpg           | Image format (supports jpg, png, etc.)   |
+## 2. 请求参数说明
+| 参数   | 类型   | 必填 | 默认值 | 说明                              |
+|--------|--------|------|--------|----------------------------------|
+| text   | string | 是   | 无     | 要编码的文本内容                  |
+| size   | int    | 否   | 100    | QR 码图片尺寸（像素，宽高相等）  |
+| margin | int    | 否   | 4      | QR 码边距（像素）                |
+| format | string | 否   | jpg    | 图片格式（支持 jpg、png 等）     |
 
-## 3. JSON Response Format
-Success response example:
+## 3. JSON 响应格式
+成功响应示例：
 ```json
 {
     "status": "success",
@@ -29,7 +30,7 @@ Success response example:
 }
 ```
 
-Error response example (invalid parameter):
+错误响应示例（无效参数）：
 ```json
 {
     "status": "error",
@@ -38,13 +39,13 @@ Error response example (invalid parameter):
 }
 ```
 
-## 4. Response Fields Description
-| Field         | Type   | Description                              |
-|---------------|--------|------------------------------------------|
-| status        | string | Request status (success/error)           |
-| message       | string | Operation result message (returned only on error) |
-| data.text     | string | Input text content                      |
-| data.image    | string | Base64-encoded QR code image data       |
-| data.format   | string | Image format (jpg, png, etc.)           |
-| data.size     | int    | QR code image size (pixels)             |
-| data.margin   | int    | QR code margin (pixels)                 |
+## 4. 响应字段说明
+| 字段          | 类型   | 说明                              |
+|---------------|--------|----------------------------------|
+| status        | string | 请求状态（success/error）        |
+| message       | string | 操作结果消息（仅在错误时返回）   |
+| data.text     | string | 输入的文本内容                   |
+| data.image    | string | Base64 编码的 QR 码图片数据      |
+| data.format   | string | 图片格式（jpg、png 等）          |
+| data.size     | int    | QR 码图片尺寸（像素）            |
+| data.margin   | int    | QR 码边距（像素）                |

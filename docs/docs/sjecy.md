@@ -1,59 +1,62 @@
-# Random Anime Image API
+# 随机二次元图片 API
 
-## 1. Basic Usage
-![API Call Demo](https://zeapi.ink/v1/sjecy.php)
+## 1. 基本调用
+![API调用Demo](https://zeapi.ink/v1/sjecy.php)
 
-> **Since image files are stored on the server, ensure a stable network connection for the best experience.**
+> **由于图片文件存储在服务器上，请确保网络连接稳定以获取最佳体验。**
 
-**Base API URL**
+**基本 API 地址**
 
-```url
+
+```txt
 https://zeapi.ink/v1/sjecy.php
 ```
 
-Retrieve a random anime image via GET request:
+通过 GET 请求获取随机二次元图片：
 
-```url
+
+```txt
 https://zeapi.ink/v1/sjecy.php
 ```
 
-**Shell Request Example**
+**Shell 请求示例**
 
 ```shell
 curl https://zeapi.ink/v1/sjecy.php
 ```
 
-**Retrieve JSON Format Output**
+**获取 JSON 格式输出**
 
-Add the `format=json` parameter to the URL to get image information in JSON format:
+在 URL 中添加 `format=json` 参数以获取 JSON 格式的图片信息：
 
-```url
+
+```txt
 https://zeapi.ink/v1/sjecy.php?format=json
 ```
 
-**Shell Request Example (JSON Format)**
+**Shell 请求示例（JSON 格式）**
 
 ```shell
 curl https://zeapi.ink/v1/sjecy.php?format=json
 ```
 
-**POST Request Example (JSON Format)**
+**POST 请求示例（JSON 格式）**
 
-Retrieve image information by sending JSON data via POST request:
+通过 POST 请求发送 JSON 数据获取图片信息：
 
 ```shell
 curl -X POST -H "Content-Type: application/json" -d '{"format":"json"}' https://zeapi.ink/v1/sjecy.php
 ```
 
-## 2. Request Parameters
+## 2. 请求参数说明
 
-| Parameter | Type   | Required | Default Value | Description                              |
-|-----------|--------|----------|---------------|------------------------------------------|
-| format    | string | No       | image         | Output format, options: `json` (returns image info) or `image` (returns raw image data) |
+| 参数   | 类型   | 必填 | 默认值 | 说明                              |
+|--------|--------|------|--------|----------------------------------|
+| format | string | 否   | image  | 输出格式，可选值：`json`（返回图片信息）或 `image`（直接返回图片数据） |
 
-## 3. JSON Response Format
+## 3. JSON 响应格式
 
-**Success Response Example (JSON Format)**
+**成功响应示例（JSON 格式）**
 
 ```json
 {
@@ -63,28 +66,28 @@ curl -X POST -H "Content-Type: application/json" -d '{"format":"json"}' https://
 }
 ```
 
-**Success Response Example (image Format)**
+**成功响应示例（image 格式）**
 
-Returns the raw binary image data with the `Content-Type` set based on the image extension (e.g., `image/jpeg`).
+直接返回图片的二进制数据，`Content-Type` 根据图片扩展名设置（例如 `image/jpeg`）。
 
-**Error Response Example (Image Not Found)**
+**错误响应示例（图片未找到）**
 
 ```json
 { "code": 404, "error": "Image not found: img_123.jpg" }
 ```
 
-**Error Response Example (Server Error)**
+**错误响应示例（服务器错误）**
 
 ```json
-{ "code": 500, "error": "Server error: [error description]" }
+{ "code": 500, "error": "Server error: [错误描述]" }
 ```
 
-## 4. Response Fields Description
+## 4. 响应字段说明
 
-| Field     | Type   | Description                                          |
-|-----------|--------|----------------------------------------------|
-| code      | int    | Response status code (200 for success, 404 for image not found, 500 for server error) |
-| status    | string | Operation result status (JSON format only, `success` for successful requests) |
-| error     | string | Error message (returned only on error)       |
-| image     | string | Image filename (JSON format only, e.g., `img_123.jpg`) |
-| url       | string | Full URL of the image (JSON format only, e.g., `https://zeapi.ink/v1/images/img_123.jpg`) |
+| 字段        | 类型   | 说明                                          |
+|-------------|--------|----------------------------------------------|
+| code        | int    | 响应状态码（200 表示成功，404 表示图片未找到，500 表示服务器错误） |
+| status      | string | 操作结果状态（仅 JSON 格式，`success` 表示成功） |
+| error       | string | 错误信息（仅在出错时返回）                   |
+| image       | string | 图片文件名（仅 JSON 格式，例如 `img_123.jpg`） |
+| url         | string | 图片的完整 URL（仅 JSON 格式，例如 `https://zeapi.ink/v1/images/img_123.jpg`） |
