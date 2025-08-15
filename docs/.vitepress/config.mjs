@@ -6,21 +6,18 @@ export default defineConfig({
   // ========== Global Configuration ==========
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg' }],
-    // RSS Auto-Discovery
     ['link', { 
       rel: 'alternate',
       type: 'application/rss+xml',
       title: 'ZeAPI Documentation Updates',
       href: '/feed.rss'
     }],
-    // SEO Optimization
     ['meta', { name: 'author', content: 'ZeAPI Team' }],
     ['meta', { name: 'keywords', content: 'API, public API, free API, ZeAPI, documentation, REST API, web services' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:creator', content: '@zeapi' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    // Material Design Icons
     ['link', { rel: 'stylesheet', href: 'https://cdn.mengze.vip/npm/@mdi/font@latest/css/materialdesignicons.min.css' }]
   ],
   lastUpdated: true,
@@ -41,12 +38,12 @@ export default defineConfig({
     },
     lineNumbers: true,
     image: {
-      lazy: true,       // Enable lazy loading
-      webp: true,       // Auto-generate WebP
-      sizes: '100vw',   // Responsive sizes
-      decoding: 'async', // Async decoding
-      loading: 'lazy',  // Native lazy loading
-      quality: 85       // Image quality
+      lazy: true,
+      webp: true,
+      sizes: '100vw',
+      decoding: 'async',
+      loading: 'lazy',
+      quality: 85
     }
   },
 
@@ -110,6 +107,7 @@ export default defineConfig({
             ],
           },
           { text: '<i class="mdi mdi-information" aria-hidden="true"></i> 关于本站', link: '/team' },
+          { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> 友情链接', link: '/links' }, // Added Links page
           { text: '<i class="mdi mdi-github" aria-hidden="true"></i> GitHub', link: 'https://github.com/yshenze/zeapi' },
           { text: '<i class="mdi mdi-web" aria-hidden="true"></i> 站长博客', link: 'https://mengze.vip/' },
           { text: '<i class="mdi mdi-link" aria-hidden="true"></i> 公共短链接服务', link: 'https://mzurl.xyz' },
@@ -117,35 +115,60 @@ export default defineConfig({
         sidebar: {
           '/docs/': [
             {
-              text: '<i class="mdi mdi-api" aria-hidden="true"></i> 接口列表',
+              text: '<i class="mdi mdi-api" aria-hidden="true"></i> 通用工具',
               collapsed: false,
               items: [
                 { text: '<i class="mdi mdi-calendar" aria-hidden="true"></i> 历史上的今天', link: '/docs/today' },
                 { text: '<i class="mdi mdi-comment-quote" aria-hidden="true"></i> 随机一言', link: '/docs/onesay' },
-                { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> 域名 Whois + 查价', link: '/docs/whois' },
                 { text: '<i class="mdi mdi-qrcode" aria-hidden="true"></i> 二维码生成', link: '/docs/qrcode' },
-                { text: '<i class="mdi mdi-account" aria-hidden="true"></i> 获取 QQ 昵称和头像', link: '/docs/qqinfo' },
-                { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> 我的世界服务器信息获取', link: '/docs/mcstatus' },
-                { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP 临时密码生成', link: '/docs/key2otp' },
-                { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> 我的世界皮肤/披风链接获取', link: '/docs/mcinfo' },
-                { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> 域名 ICP 备案查询', link: '/docs/icpquery' },
-                { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP 地址归属地查询', link: '/docs/ipseek' },
-                { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ 文本', link: '/docs/b64totext' },
-                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ 图片', link: '/docs/b64toimg' },
                 { text: '<i class="mdi mdi-animation" aria-hidden="true"></i> 随机二次元图片', link: '/docs/sjecy' },
                 { text: '<i class="mdi mdi-emoticon" aria-hidden="true"></i> 随机 Meme 图片', link: '/docs/sjmeme' },
-                { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 零知识密码生成', link: '/docs/pbkdf2' },
-                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ 强制转跳', link: '/docs/qzztqq' },
                 { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Bing 每日壁纸', link: '/docs/bingpic' },
+              ],
+            },
+            {
+              text: '<i class="mdi mdi-domain" aria-hidden="true"></i> 域名与IP服务',
+              collapsed: false,
+              items: [
+                { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> 域名 Whois + 查价', link: '/docs/whois' },
+                { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> 域名 ICP 备案查询', link: '/docs/icpquery' },
+                { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP 地址归属地查询', link: '/docs/ipseek' },
+              ],
+            },
+            {
+              text: '<i class="mdi mdi-web" aria-hidden="true"></i> 社交媒体与网络',
+              collapsed: false,
+              items: [
+                { text: '<i class="mdi mdi-account" aria-hidden="true"></i> 获取 QQ 昵称和头像', link: '/docs/qqinfo' },
+                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ 强制转跳', link: '/docs/qzztqq' },
                 { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> 抖音热搜', link: '/docs/douyin' },
                 { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> 百度热点', link: '/docs/baidu' },
                 { text: '<i class="mdi mdi-shield-check" aria-hidden="true"></i> 微信域名拦截检测', link: '/docs/txljjc' },
               ],
             },
             {
+              text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> 我的世界服务',
+              collapsed: false,
+              items: [
+                { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> 我的世界服务器信息获取', link: '/docs/mcstatus' },
+                { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> 我的世界皮肤/披风链接获取', link: '/docs/mcinfo' },
+              ],
+            },
+            {
+              text: '<i class="mdi mdi-lock" aria-hidden="true"></i> 安全与编码',
+              collapsed: false,
+              items: [
+                { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP 临时密码生成', link: '/docs/key2otp' },
+                { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 零知识密码生成', link: '/docs/pbkdf2' },
+                { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ 文本', link: '/docs/b64totext' },
+                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ 图片', link: '/docs/b64toimg' },
+              ],
+            },
+            {
               text: '<i class="mdi mdi-information" aria-hidden="true"></i> 其他',
               items: [
-                { text: '<i class="mdi mdi-information" aria-hidden="true"></i> 关于本站', link: '/team' }
+                { text: '<i class="mdi mdi-information" aria-hidden="true"></i> 关于本站', link: '/team' },
+                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> 友情链接', link: '/links' }, // Added Links page
               ]
             }
           ]
@@ -231,6 +254,7 @@ export default defineConfig({
             ],
           },
           { text: '<i class="mdi mdi-information" aria-hidden="true"></i> About Me', link: '/en/team' },
+          { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> Links', link: '/en/links' }, // Added Links page
           { text: '<i class="mdi mdi-github" aria-hidden="true"></i> GitHub', link: 'https://github.com/yshenze/zeapi' },
           { text: '<i class="mdi mdi-web" aria-hidden="true"></i> Blog', link: 'https://mengze.vip/' },
           { text: '<i class="mdi mdi-link" aria-hidden="true"></i> ShortURL', link: 'https://mzurl.xyz' },
@@ -238,35 +262,60 @@ export default defineConfig({
         sidebar: {
           '/en/docs/': [
             {
-              text: '<i class="mdi mdi-api" aria-hidden="true"></i> APIs',
+              text: '<i class="mdi mdi-api" aria-hidden="true"></i> General Utilities',
               collapsed: false,
               items: [
                 { text: '<i class="mdi mdi-calendar" aria-hidden="true"></i> Today in History', link: '/en/docs/today' },
                 { text: '<i class="mdi mdi-comment-quote" aria-hidden="true"></i> Random Quote', link: '/en/docs/onesay' },
-                { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> Domain Whois & Pricing', link: '/en/docs/whois' },
                 { text: '<i class="mdi mdi-qrcode" aria-hidden="true"></i> QR Code Generator', link: '/en/docs/qrcode' },
-                { text: '<i class="mdi mdi-account" aria-hidden="true"></i> QQ Nickname & Avatar', link: '/en/docs/qqinfo' },
-                { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> Minecraft Server Status', link: '/en/docs/mcstatus' },
-                { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP Generator', link: '/en/docs/key2otp' },
-                { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> Minecraft Skin/Cape', link: '/en/docs/mcinfo' },
-                { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> ICP Lookup', link: '/en/docs/icpquery' },
-                { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP Geolocation', link: '/en/docs/ipseek' },
-                { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ Text', link: '/en/docs/b64totext' },
-                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ Image', link: '/en/docs/b64toimg' },
                 { text: '<i class="mdi mdi-animation" aria-hidden="true"></i> Random Anime Pic', link: '/en/docs/sjecy' },
                 { text: '<i class="mdi mdi-emoticon" aria-hidden="true"></i> Random Meme Pic', link: '/en/docs/sjmeme' },
-                { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 Generator', link: '/en/docs/pbkdf2' },
-                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ Forced Redirect', link: '/en/docs/qzztqq' },
                 { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Bing Daily Wallpaper', link: '/en/docs/bingpic' },
+              ],
+            },
+            {
+              text: '<i class="mdi mdi-domain" aria-hidden="true"></i> Domain & IP Services',
+              collapsed: false,
+              items: [
+                { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> Domain Whois & Pricing', link: '/en/docs/whois' },
+                { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> ICP Lookup', link: '/en/docs/icpquery' },
+                { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP Geolocation', link: '/en/docs/ipseek' },
+              ],
+            },
+            {
+              text: '<i class="mdi mdi-web" aria-hidden="true"></i> Social Media & Web',
+              collapsed: false,
+              items: [
+                { text: '<i class="mdi mdi-account" aria-hidden="true"></i> QQ Nickname & Avatar', link: '/en/docs/qqinfo' },
+                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ Forced Redirect', link: '/en/docs/qzztqq' },
                 { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> Douyin Hot Search', link: '/en/docs/douyin' },
                 { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> Baidu Hot Search', link: '/en/docs/baidu' },
                 { text: '<i class="mdi mdi-shield-check" aria-hidden="true"></i> WeChat Domain Block Detection', link: '/en/docs/txljjc' },
               ],
             },
             {
+              text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> Minecraft Services',
+              collapsed: false,
+              items: [
+                { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> Minecraft Server Status', link: '/en/docs/mcstatus' },
+                { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> Minecraft Skin/Cape', link: '/en/docs/mcinfo' },
+              ],
+            },
+            {
+              text: '<i class="mdi mdi-lock" aria-hidden="true"></i> Security & Encoding',
+              collapsed: false,
+              items: [
+                { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP Generator', link: '/en/docs/key2otp' },
+                { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 Generator', link: '/en/docs/pbkdf2' },
+                { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ Text', link: '/en/docs/b64totext' },
+                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ Image', link: '/en/docs/b64toimg' },
+              ],
+            },
+            {
               text: '<i class="mdi mdi-information" aria-hidden="true"></i> Other',
               items: [
-                { text: '<i class="mdi mdi-information" aria-hidden="true"></i> About Me', link: '/en/team' }
+                { text: '<i class="mdi mdi-information" aria-hidden="true"></i> About Me', link: '/en/team' },
+                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> Links', link: '/en/links' }, // Added Links page
               ]
             }
           ]
@@ -418,7 +467,7 @@ export default defineConfig({
   // ========== Cache Configuration ==========
   cacheDir: './.vitepress/.vite',
   
-  // ========== RSS Configuration (using feed package) ==========
+  // ========== RSS Configuration ==========
   async buildEnd(siteConfig) {
     const { pages, outDir } = siteConfig
     const baseUrl = 'https://zeapi.ink'
