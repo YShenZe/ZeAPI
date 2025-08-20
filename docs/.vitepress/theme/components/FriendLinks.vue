@@ -27,6 +27,12 @@ interface Link {
 
 const links: Link[] = [
   {
+    name: '大方博客',
+    intro: '实用建站教程与资源分享',
+    logo: 'https://blog.mmp.cc/wp-content/uploads/2024/11/df.png',
+    url: 'https://blog.mmp.cc/'
+  },
+  {
     name: 'LineXic书屋',
     intro: '难离难舍，想抱紧些',
     logo: 'https://www.linexic.top/avatar.webp',
@@ -43,6 +49,12 @@ const links: Link[] = [
     intro: '记得给我的世界加上故事与咖啡',
     logo: 'https://q1.qlogo.cn/g?b=qq&nk=66870019&s=100',
     url: 'https://255650.xyz'
+  },
+  {
+    name: '让照片动起来          ',
+    intro: '导入照片让照片动起来',
+    logo: 'https://youke1.picui.cn/s1/2025/08/21/68a601eccc51a.png ',
+    url: 'http://www.wuqi520.xyz/'
   },
   {
     name: 'VitePress',

@@ -1,33 +1,26 @@
 import { defineConfig } from 'vitepress'
 import { figure } from '@mdit/plugin-figure'
-import { Feed } from 'feed'
 
 export default defineConfig({
   // ========== Global Configuration ==========
   head: [
     ['link', { rel: 'icon', href: '/Logo.svg' }],
-    ['link', { 
-      rel: 'alternate',
-      type: 'application/rss+xml',
-      title: 'ZeAPI Documentation Updates',
-      href: '/feed.rss'
-    }],
     ['meta', { name: 'author', content: 'ZeAPI Team' }],
     ['meta', { name: 'keywords', content: 'API, public API, free API, ZeAPI, documentation, REST API, web services' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:creator', content: '@zeapi' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['link', { rel: 'stylesheet', href: 'https://cdn.mengze.vip/npm/@mdi/font@latest/css/materialdesignicons.min.css' }]
+    ['link', { rel: 'stylesheet', href: 'https://cdn.mengze.vip/npm/@fortawesome/fontawesome-free@6/css/all.min.css' }]
   ],
   lastUpdated: true,
-  appearance: 'dark',
-  
+  appearance: true, // Enable theme switcher while following system theme
+
   // ========== Sitemap Configuration ==========
   sitemap: {
     hostname: 'https://zeapi.ink',
   },
-  
+
   markdown: {
     config: (md) => {
       md.use(figure);
@@ -66,8 +59,8 @@ export default defineConfig({
         siteTitle: '',
         mobileNav: {
           text: '菜单',
-          openIcon: 'i-material-symbols-menu',
-          closeIcon: 'i-material-symbols-close'
+          openIcon: 'fa-solid fa-bars',
+          closeIcon: 'fa-solid fa-xmark'
         },
         seo: {
           title: '梦泽API - 免费公共服务接口',
@@ -79,96 +72,95 @@ export default defineConfig({
           ogType: 'website'
         },
         nav: [
-          { text: '<i class="mdi mdi-home" aria-hidden="true"></i> 首页', link: '/' },
+          { text: '<i class="fa-solid fa-house" aria-hidden="true"></i> 首页', link: '/' },
           {
-            text: '<i class="mdi mdi-api" aria-hidden="true"></i> 接口列表',
+            text: '<i class="fa-solid fa-plug" aria-hidden="true"></i> 接口列表',
             items: [
-              { text: '<i class="mdi mdi-view-list" aria-hidden="true"></i> 所有接口总览', link: '/docs' },
-              { text: '<i class="mdi mdi-calendar" aria-hidden="true"></i> 历史上的今天', link: '/docs/today' },
-              { text: '<i class="mdi mdi-comment-quote" aria-hidden="true"></i> 随机一言', link: '/docs/onesay' },
-              { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> 域名 Whois + 查价', link: '/docs/whois' },
-              { text: '<i class="mdi mdi-qrcode" aria-hidden="true"></i> 二维码生成', link: '/docs/qrcode' },
-              { text: '<i class="mdi mdi-account" aria-hidden="true"></i> 获取 QQ 昵称和头像', link: '/docs/qqinfo' },
-              { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> 我的世界服务器信息获取', link: '/docs/mcstatus' },
-              { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP 临时密码生成', link: '/docs/key2otp' },
-              { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> 我的世界皮肤/披风链接获取', link: '/docs/mcinfo' },
-              { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> 域名 ICP 备案查询', link: '/docs/icpquery' },
-              { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP 地址归属地查询', link: '/docs/ipseek' },
-              { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ 文本', link: '/docs/b64totext' },
-              { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ 图片', link: '/docs/b64toimg' },
-              { text: '<i class="mdi mdi-animation" aria-hidden="true"></i> 随机二次元图片', link: '/docs/sjecy' },
-              { text: '<i class="mdi mdi-emoticon" aria-hidden="true"></i> 随机 Meme 图片', link: '/docs/sjmeme' },
-              { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 零知识密码生成', link: '/docs/pbkdf2' },
-              { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ 强制转跳', link: '/docs/qzztqq' },
-              { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Bing 每日壁纸', link: '/docs/bingpic' },
-              { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> 抖音热搜', link: '/docs/douyin' },
-              { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> 百度热点', link: '/docs/baidu' },
-              { text: '<i class="mdi mdi-shield-check" aria-hidden="true"></i> 微信域名拦截检测', link: '/docs/txljjc' },
+              { text: '<i class="fa-solid fa-list-ul" aria-hidden="true"></i> 所有接口总览', link: '/docs' },
+              { text: '<i class="fa-solid fa-calendar-day" aria-hidden="true"></i> 历史上的今天', link: '/docs/today' },
+              { text: '<i class="fa-solid fa-quote-right" aria-hidden="true"></i> 随机一言', link: '/docs/onesay' },
+              { text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> 域名 Whois + 查价', link: '/docs/whois' },
+              { text: '<i class="fa-solid fa-qrcode" aria-hidden="true"></i> 二维码生成', link: '/docs/qrcode' },
+              { text: '<i class="fa-solid fa-user-circle" aria-hidden="true"></i> 获取 QQ 昵称和头像', link: '/docs/qqinfo' },
+              { text: '<i class="fa-solid fa-cube" aria-hidden="true"></i> 我的世界服务器信息获取', link: '/docs/mcstatus' },
+              { text: '<i class="fa-solid fa-clock" aria-hidden="true"></i> TOTP 临时密码生成', link: '/docs/key2otp' },
+              { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> 我的世界皮肤/披风链接获取', link: '/docs/mcinfo' },
+              { text: '<i class="fa-solid fa-file-lines" aria-hidden="true"></i> 域名 ICP 备案查询', link: '/docs/icpquery' },
+              { text: '<i class="fa-solid fa-map-marker" aria-hidden="true"></i> IP 地址归属地查询', link: '/docs/ipseek' },
+              { text: '<i class="fa-solid fa-font" aria-hidden="true"></i> Base64 ⇄ 文本', link: '/docs/b64totext' },
+              { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Base64 ⇄ 图片', link: '/docs/b64toimg' },
+              { text: '<i class="fa-solid fa-images" aria-hidden="true"></i> 随机二次元图片', link: '/docs/sjecy' },
+              { text: '<i class="fa-solid fa-face-smile" aria-hidden="true"></i> 随机 Meme 图片', link: '/docs/sjmeme' },
+              { text: '<i class="fa-solid fa-lock" aria-hidden="true"></i> PBKDF2 零知识密码生成', link: '/docs/pbkdf2' },
+              { text: '<i class="fa-solid fa-link" aria-hidden="true"></i> QQ 强制转跳', link: '/docs/qzztqq' },
+              { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Bing 每日壁纸', link: '/docs/bingpic' },
+              { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> 抖音热搜', link: '/docs/douyin' },
+              { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> 百度热点', link: '/docs/baidu' },
+              { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> 微信域名拦截检测', link: '/docs/txljjc' },
             ],
           },
-          { text: '<i class="mdi mdi-information" aria-hidden="true"></i> 关于本站', link: '/team' },
-          { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> 友情链接', link: '/docs/links' }, // Added Links page
-          { text: '<i class="mdi mdi-github" aria-hidden="true"></i> GitHub', link: 'https://github.com/yshenze/zeapi' },
-          { text: '<i class="mdi mdi-web" aria-hidden="true"></i> 站长博客', link: 'https://mengze.vip/' },
-          { text: '<i class="mdi mdi-link" aria-hidden="true"></i> 公共短链接服务', link: 'https://mzurl.xyz' },
+          { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> 关于本站', link: '/docs/team' },
+          { text: '<i class="fa-solid fa-link" aria-hidden="true"></i> 友情链接', link: '/docs/links' },
+          { text: '<i class="fa-brands fa-github" aria-hidden="true"></i> GitHub', link: 'https://github.com/yshenze/zeapi' },
+          { text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> 站长博客', link: 'https://mengze.vip/' },
         ],
         sidebar: {
           '/docs/': [
             {
-              text: '<i class="mdi mdi-api" aria-hidden="true"></i> 通用工具',
+              text: '<i class="fa-solid fa-wrench" aria-hidden="true"></i> 通用工具',
               collapsed: false,
               items: [
-                { text: '<i class="mdi mdi-calendar" aria-hidden="true"></i> 历史上的今天', link: '/docs/today' },
-                { text: '<i class="mdi mdi-comment-quote" aria-hidden="true"></i> 随机一言', link: '/docs/onesay' },
-                { text: '<i class="mdi mdi-qrcode" aria-hidden="true"></i> 二维码生成', link: '/docs/qrcode' },
-                { text: '<i class="mdi mdi-animation" aria-hidden="true"></i> 随机二次元图片', link: '/docs/sjecy' },
-                { text: '<i class="mdi mdi-emoticon" aria-hidden="true"></i> 随机 Meme 图片', link: '/docs/sjmeme' },
-                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Bing 每日壁纸', link: '/docs/bingpic' },
+                { text: '<i class="fa-solid fa-calendar-day" aria-hidden="true"></i> 历史上的今天', link: '/docs/today' },
+                { text: '<i class="fa-solid fa-quote-right" aria-hidden="true"></i> 随机一言', link: '/docs/onesay' },
+                { text: '<i class="fa-solid fa-qrcode" aria-hidden="true"></i> 二维码生成', link: '/docs/qrcode' },
+                { text: '<i class="fa-solid fa-images" aria-hidden="true"></i> 随机二次元图片', link: '/docs/sjecy' },
+                { text: '<i class="fa-solid fa-face-smile" aria-hidden="true"></i> 随机 Meme 图片', link: '/docs/sjmeme' },
+                { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Bing 每日壁纸', link: '/docs/bingpic' },
               ],
             },
             {
-              text: '<i class="mdi mdi-domain" aria-hidden="true"></i> 域名与IP服务',
+              text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> 域名与IP服务',
               collapsed: false,
               items: [
-                { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> 域名 Whois + 查价', link: '/docs/whois' },
-                { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> 域名 ICP 备案查询', link: '/docs/icpquery' },
-                { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP 地址归属地查询', link: '/docs/ipseek' },
+                { text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> 域名 Whois + 查价', link: '/docs/whois' },
+                { text: '<i class="fa-solid fa-file-lines" aria-hidden="true"></i> 域名 ICP 备案查询', link: '/docs/icpquery' },
+                { text: '<i class="fa-solid fa-map-marker" aria-hidden="true"></i> IP 地址归属地查询', link: '/docs/ipseek' },
               ],
             },
             {
-              text: '<i class="mdi mdi-web" aria-hidden="true"></i> 社交媒体与网络',
+              text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> 社交媒体与网络',
               collapsed: false,
               items: [
-                { text: '<i class="mdi mdi-account" aria-hidden="true"></i> 获取 QQ 昵称和头像', link: '/docs/qqinfo' },
-                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ 强制转跳', link: '/docs/qzztqq' },
-                { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> 抖音热搜', link: '/docs/douyin' },
-                { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> 百度热点', link: '/docs/baidu' },
-                { text: '<i class="mdi mdi-shield-check" aria-hidden="true"></i> 微信域名拦截检测', link: '/docs/txljjc' },
+                { text: '<i class="fa-solid fa-user-circle" aria-hidden="true"></i> 获取 QQ 昵称和头像', link: '/docs/qqinfo' },
+                { text: '<i class="fa-solid fa-link" aria-hidden="true"></i> QQ 强制转跳', link: '/docs/qzztqq' },
+                { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> 抖音热搜', link: '/docs/douyin' },
+                { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> 百度热点', link: '/docs/baidu' },
+                { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> 微信域名拦截检测', link: '/docs/txljjc' },
               ],
             },
             {
-              text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> 我的世界服务',
+              text: '<i class="fa-solid fa-cube" aria-hidden="true"></i> 我的世界服务',
               collapsed: false,
               items: [
-                { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> 我的世界服务器信息获取', link: '/docs/mcstatus' },
-                { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> 我的世界皮肤/披风链接获取', link: '/docs/mcinfo' },
+                { text: '<i class="fa-solid fa-cube" aria-hidden="true"></i> 我的世界服务器信息获取', link: '/docs/mcstatus' },
+                { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> 我的世界皮肤/披风链接获取', link: '/docs/mcinfo' },
               ],
             },
             {
-              text: '<i class="mdi mdi-lock" aria-hidden="true"></i> 安全与编码',
+              text: '<i class="fa-solid fa-lock" aria-hidden="true"></i> 安全与编码',
               collapsed: false,
               items: [
-                { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP 临时密码生成', link: '/docs/key2otp' },
-                { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 零知识密码生成', link: '/docs/pbkdf2' },
-                { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ 文本', link: '/docs/b64totext' },
-                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ 图片', link: '/docs/b64toimg' },
+                { text: '<i class="fa-solid fa-clock" aria-hidden="true"></i> TOTP 临时密码生成', link: '/docs/key2otp' },
+                { text: '<i class="fa-solid fa-lock" aria-hidden="true"></i> PBKDF2 零知识密码生成', link: '/docs/pbkdf2' },
+                { text: '<i class="fa-solid fa-font" aria-hidden="true"></i> Base64 ⇄ 文本', link: '/docs/b64totext' },
+                { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Base64 ⇄ 图片', link: '/docs/b64toimg' },
               ],
             },
             {
-              text: '<i class="mdi mdi-information" aria-hidden="true"></i> 其他',
+              text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> 其他',
               items: [
-                { text: '<i class="mdi mdi-information" aria-hidden="true"></i> 关于本站', link: '/team' },
-                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> 友情链接', link: '/docs/links' }, // Added Links page
+                { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> 关于本站', link: '/docs/team' },
+                { text: '<i class="fa-solid fa-link" aria-hidden="true"></i> 友情链接', link: '/docs/links' },
               ]
             }
           ]
@@ -200,7 +192,7 @@ export default defineConfig({
         darkModeSwitchLabel: '外观',
       }
     },
-    
+
     en: {
       label: 'English',
       lang: 'en-US',
@@ -213,8 +205,8 @@ export default defineConfig({
         siteTitle: '',
         mobileNav: {
           text: 'Menu',
-          openIcon: 'i-material-symbols-menu',
-          closeIcon: 'i-material-symbols-close'
+          openIcon: 'fa-solid fa-bars',
+          closeIcon: 'fa-solid fa-xmark'
         },
         seo: {
           title: 'ZeAPI - Free Public API Services',
@@ -226,96 +218,95 @@ export default defineConfig({
           ogType: 'website'
         },
         nav: [
-          { text: '<i class="mdi mdi-home" aria-hidden="true"></i> Home', link: '/en/' },
+          { text: '<i class="fa-solid fa-house" aria-hidden="true"></i> Home', link: '/en/' },
           {
-            text: '<i class="mdi mdi-api" aria-hidden="true"></i> API List',
+            text: '<i class="fa-solid fa-plug" aria-hidden="true"></i> API List',
             items: [
-              { text: '<i class="mdi mdi-view-list" aria-hidden="true"></i> All APIs', link: '/en/docs' },
-              { text: '<i class="mdi mdi-calendar" aria-hidden="true"></i> Today in History', link: '/en/docs/today' },
-              { text: '<i class="mdi mdi-comment-quote" aria-hidden="true"></i> Random Quote', link: '/en/docs/onesay' },
-              { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> Domain Whois & Pricing', link: '/en/docs/whois' },
-              { text: '<i class="mdi mdi-qrcode" aria-hidden="true"></i> QR Code Generator', link: '/en/docs/qrcode' },
-              { text: '<i class="mdi mdi-account" aria-hidden="true"></i> QQ Nickname & Avatar', link: '/en/docs/qqinfo' },
-              { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> Minecraft Server Status', link: '/en/docs/mcstatus' },
-              { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP Generator', link: '/en/docs/key2otp' },
-              { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> Minecraft Skin/Cape', link: '/en/docs/mcinfo' },
-              { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> ICP Lookup', link: '/en/docs/icpquery' },
-              { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP Geolocation', link: '/en/docs/ipseek' },
-              { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ Text', link: '/en/docs/b64totext' },
-              { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ Image', link: '/en/docs/b64toimg' },
-              { text: '<i class="mdi mdi-animation" aria-hidden="true"></i> Random Anime Pic', link: '/en/docs/sjecy' },
-              { text: '<i class="mdi mdi-emoticon" aria-hidden="true"></i> Random Meme Pic', link: '/en/docs/sjmeme' },
-              { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 Generator', link: '/en/docs/pbkdf2' },
-              { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ Forced Redirect', link: '/en/docs/qzztqq' },
-              { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Bing Daily Wallpaper', link: '/en/docs/bingpic' },
-              { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> Douyin Hot Search', link: '/en/docs/douyin' },
-              { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> Baidu Hot Search', link: '/en/docs/baidu' },
-              { text: '<i class="mdi mdi-shield-check" aria-hidden="true"></i> WeChat Domain Block Detection', link: '/en/docs/txljjc' },
+              { text: '<i class="fa-solid fa-list-ul" aria-hidden="true"></i> All APIs', link: '/en/docs' },
+              { text: '<i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Today in History', link: '/en/docs/today' },
+              { text: '<i class="fa-solid fa-quote-right" aria-hidden="true"></i> Random Quote', link: '/en/docs/onesay' },
+              { text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> Domain Whois & Pricing', link: '/en/docs/whois' },
+              { text: '<i class="fa-solid fa-qrcode" aria-hidden="true"></i> QR Code Generator', link: '/en/docs/qrcode' },
+              { text: '<i class="fa-solid fa-user-circle" aria-hidden="true"></i> QQ Nickname & Avatar', link: '/en/docs/qqinfo' },
+              { text: '<i class="fa-solid fa-cube" aria-hidden="true"></i> Minecraft Server Status', link: '/en/docs/mcstatus' },
+              { text: '<i class="fa-solid fa-clock" aria-hidden="true"></i> TOTP Generator', link: '/en/docs/key2otp' },
+              { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Minecraft Skin/Cape', link: '/en/docs/mcinfo' },
+              { text: '<i class="fa-solid fa-file-lines" aria-hidden="true"></i> ICP Lookup', link: '/en/docs/icpquery' },
+              { text: '<i class="fa-solid fa-map-marker" aria-hidden="true"></i> IP Geolocation', link: '/en/docs/ipseek' },
+              { text: '<i class="fa-solid fa-font" aria-hidden="true"></i> Base64 ⇄ Text', link: '/en/docs/b64totext' },
+              { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Base64 ⇄ Image', link: '/en/docs/b64toimg' },
+              { text: '<i class="fa-solid fa-images" aria-hidden="true"></i> Random Anime Pic', link: '/en/docs/sjecy' },
+              { text: '<i class="fa-solid fa-face-smile" aria-hidden="true"></i> Random Meme Pic', link: '/en/docs/sjmeme' },
+              { text: '<i class="fa-solid fa-lock" aria-hidden="true"></i> PBKDF2 Generator', link: '/en/docs/pbkdf2' },
+              { text: '<i class="fa-solid fa-link" aria-hidden="true"></i> QQ Forced Redirect', link: '/en/docs/qzztqq' },
+              { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Bing Daily Wallpaper', link: '/en/docs/bingpic' },
+              { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> Douyin Hot Search', link: '/en/docs/douyin' },
+              { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> Baidu Hot Search', link: '/en/docs/baidu' },
+              { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> WeChat Domain Block Detection', link: '/en/docs/txljjc' },
             ],
           },
-          { text: '<i class="mdi mdi-information" aria-hidden="true"></i> About Me', link: '/en/team' },
-          { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> Links', link: '/en/docs/links' }, // Added Links page
-          { text: '<i class="mdi mdi-github" aria-hidden="true"></i> GitHub', link: 'https://github.com/yshenze/zeapi' },
-          { text: '<i class="mdi mdi-web" aria-hidden="true"></i> Blog', link: 'https://mengze.vip/' },
-          { text: '<i class="mdi mdi-link" aria-hidden="true"></i> ShortURL', link: 'https://mzurl.xyz' },
+          { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> About Me', link: '/en/docs/team' },
+          { text: '<i class="fa-solid fa-link" aria-hidden="true"></i> Links', link: '/en/docs/links' },
+          { text: '<i class="fa-brands fa-github" aria-hidden="true"></i> GitHub', link: 'https://github.com/yshenze/zeapi' },
+          { text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> Blog', link: 'https://mengze.vip/' },
         ],
         sidebar: {
           '/en/docs/': [
             {
-              text: '<i class="mdi mdi-api" aria-hidden="true"></i> General Utilities',
+              text: '<i class="fa-solid fa-wrench" aria-hidden="true"></i> General Utilities',
               collapsed: false,
               items: [
-                { text: '<i class="mdi mdi-calendar" aria-hidden="true"></i> Today in History', link: '/en/docs/today' },
-                { text: '<i class="mdi mdi-comment-quote" aria-hidden="true"></i> Random Quote', link: '/en/docs/onesay' },
-                { text: '<i class="mdi mdi-qrcode" aria-hidden="true"></i> QR Code Generator', link: '/en/docs/qrcode' },
-                { text: '<i class="mdi mdi-animation" aria-hidden="true"></i> Random Anime Pic', link: '/en/docs/sjecy' },
-                { text: '<i class="mdi mdi-emoticon" aria-hidden="true"></i> Random Meme Pic', link: '/en/docs/sjmeme' },
-                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Bing Daily Wallpaper', link: '/en/docs/bingpic' },
+                { text: '<i class="fa-solid fa-calendar-day" aria-hidden="true"></i> Today in History', link: '/en/docs/today' },
+                { text: '<i class="fa-solid fa-quote-right" aria-hidden="true"></i> Random Quote', link: '/en/docs/onesay' },
+                { text: '<i class="fa-solid fa-qrcode" aria-hidden="true"></i> QR Code Generator', link: '/en/docs/qrcode' },
+                { text: '<i class="fa-solid fa-images" aria-hidden="true"></i> Random Anime Pic', link: '/en/docs/sjecy' },
+                { text: '<i class="fa-solid fa-face-smile" aria-hidden="true"></i> Random Meme Pic', link: '/en/docs/sjmeme' },
+                { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Bing Daily Wallpaper', link: '/en/docs/bingpic' },
               ],
             },
             {
-              text: '<i class="mdi mdi-domain" aria-hidden="true"></i> Domain & IP Services',
+              text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> Domain & IP Services',
               collapsed: false,
               items: [
-                { text: '<i class="mdi mdi-domain" aria-hidden="true"></i> Domain Whois & Pricing', link: '/en/docs/whois' },
-                { text: '<i class="mdi mdi-file-document" aria-hidden="true"></i> ICP Lookup', link: '/en/docs/icpquery' },
-                { text: '<i class="mdi mdi-map-marker" aria-hidden="true"></i> IP Geolocation', link: '/en/docs/ipseek' },
+                { text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> Domain Whois & Pricing', link: '/en/docs/whois' },
+                { text: '<i class="fa-solid fa-file-lines" aria-hidden="true"></i> ICP Lookup', link: '/en/docs/icpquery' },
+                { text: '<i class="fa-solid fa-map-marker" aria-hidden="true"></i> IP Geolocation', link: '/en/docs/ipseek' },
               ],
             },
             {
-              text: '<i class="mdi mdi-web" aria-hidden="true"></i> Social Media & Web',
+              text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> Social Media & Web',
               collapsed: false,
               items: [
-                { text: '<i class="mdi mdi-account" aria-hidden="true"></i> QQ Nickname & Avatar', link: '/en/docs/qqinfo' },
-                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> QQ Forced Redirect', link: '/en/docs/qzztqq' },
-                { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> Douyin Hot Search', link: '/en/docs/douyin' },
-                { text: '<i class="mdi mdi-fire" aria-hidden="true"></i> Baidu Hot Search', link: '/en/docs/baidu' },
-                { text: '<i class="mdi mdi-shield-check" aria-hidden="true"></i> WeChat Domain Block Detection', link: '/en/docs/txljjc' },
+                { text: '<i class="fa-solid fa-user-circle" aria-hidden="true"></i> QQ Nickname & Avatar', link: '/en/docs/qqinfo' },
+                { text: '<i class="fa-solid fa-link" aria-hidden="true"></i> QQ Forced Redirect', link: '/en/docs/qzztqq' },
+                { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> Douyin Hot Search', link: '/en/docs/douyin' },
+                { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> Baidu Hot Search', link: '/en/docs/baidu' },
+                { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> WeChat Domain Block Detection', link: '/en/docs/txljjc' },
               ],
             },
             {
-              text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> Minecraft Services',
+              text: '<i class="fa-solid fa-cube" aria-hidden="true"></i> Minecraft Services',
               collapsed: false,
               items: [
-                { text: '<i class="mdi mdi-minecraft" aria-hidden="true"></i> Minecraft Server Status', link: '/en/docs/mcstatus' },
-                { text: '<i class="mdi mdi-texture" aria-hidden="true"></i> Minecraft Skin/Cape', link: '/en/docs/mcinfo' },
+                { text: '<i class="fa-solid fa-cube" aria-hidden="true"></i> Minecraft Server Status', link: '/en/docs/mcstatus' },
+                { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Minecraft Skin/Cape', link: '/en/docs/mcinfo' },
               ],
             },
             {
-              text: '<i class="mdi mdi-lock" aria-hidden="true"></i> Security & Encoding',
+              text: '<i class="fa-solid fa-lock" aria-hidden="true"></i> Security & Encoding',
               collapsed: false,
               items: [
-                { text: '<i class="mdi mdi-clock" aria-hidden="true"></i> TOTP Generator', link: '/en/docs/key2otp' },
-                { text: '<i class="mdi mdi-lock" aria-hidden="true"></i> PBKDF2 Generator', link: '/en/docs/pbkdf2' },
-                { text: '<i class="mdi mdi-text-box" aria-hidden="true"></i> Base64 ⇄ Text', link: '/en/docs/b64totext' },
-                { text: '<i class="mdi mdi-image" aria-hidden="true"></i> Base64 ⇄ Image', link: '/en/docs/b64toimg' },
+                { text: '<i class="fa-solid fa-clock" aria-hidden="true"></i> TOTP Generator', link: '/en/docs/key2otp' },
+                { text: '<i class="fa-solid fa-lock" aria-hidden="true"></i> PBKDF2 Generator', link: '/en/docs/pbkdf2' },
+                { text: '<i class="fa-solid fa-font" aria-hidden="true"></i> Base64 ⇄ Text', link: '/en/docs/b64totext' },
+                { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Base64 ⇄ Image', link: '/en/docs/b64toimg' },
               ],
             },
             {
-              text: '<i class="mdi mdi-information" aria-hidden="true"></i> Other',
+              text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> Other',
               items: [
-                { text: '<i class="mdi mdi-information" aria-hidden="true"></i> About Me', link: '/en/team' },
-                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> Links', link: '/en/docs/links' }, // Added Links page
+                { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> About Me', link: '/en/docs/team' },
+                { text: '<i class="fa-solid fa-link" aria-hidden="true"></i> Links', link: '/en/docs/links' },
               ]
             }
           ]
@@ -352,7 +343,7 @@ export default defineConfig({
   // ========== Global Theme Configuration ==========
   themeConfig: {
     logo: '/Logo.svg',
-    
+
     search: {
       provider: 'local',
       options: {
@@ -399,24 +390,18 @@ export default defineConfig({
         }
       }
     },
-    
+
     socialLinks: [
       { icon: 'github', link: 'https://github.com/yshenze/zeapi' },
-      { 
-        icon: {
-          svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 3C8.46 3 10.13 4.58 10.35 6.5H21V9H10.35C10.13 10.92 8.46 12.5 6.5 12.5C4 12.5 2 10.5 2 8S4 3.5 6.5 3.5M6.5 5.5C5.4 5.5 4.5 6.4 4.5 7.5S5.4 9.5 6.5 9.5C7.6 9.5 8.5 8.6 8.5 7.5S7.6 5.5 6.5 5.5M6.5 11C8.46 11 10.13 12.58 10.35 14.5H21V17H10.35C10.13 18.92 8.46 20.5 6.5 20.5C4 20.5 2 18.5 2 16S4 11.5 6.5 11.5M6.5 13.5C5.4 13.5 4.5 14.4 4.5 15.5S5.4 17.5 6.5 17.5C7.6 17.5 8.5 16.6 8.5 15.5S7.6 13.5 6.5 13.5Z"/></svg>'
-        },
-        link: 'https://mzurl.xyz'
-      }
     ],
-    
+
     localeLinks: {
       items: [
         { text: '简体中文', link: '/' },
         { text: 'English', link: '/en/' }
       ]
     },
-    
+
     darkModeSwitchLabel: 'Appearance',
     returnToTopLabel: 'Return to top',
     outline: {
@@ -434,19 +419,39 @@ export default defineConfig({
         timeStyle: 'medium'
       }
     },
-    
+
     socialShare: {
       networks: [
-        { name: 'twitter', icon: 'i-ri-twitter-x-fill', color: '#000000' },
-        { name: 'facebook', icon: 'i-ri-facebook-fill', color: '#1877f2' },
-        { name: 'reddit', icon: 'i-ri-reddit-fill', color: '#ff4500' },
-        { name: 'whatsapp', icon: 'i-ri-whatsapp-fill', color: '#25d366' },
-        { name: 'linkedin', icon: 'i-ri-linkedin-fill', color: '#0a66c2' },
-        { name: 'telegram', icon: 'i-ri-telegram-fill', color: '#0088cc' },
-        { name: 'email', icon: 'i-ri-mail-fill', color: '#ea4335' }
+        { name: 'twitter', icon: 'fa-brands fa-twitter', color: '#000000' },
+        { name: 'facebook', icon: 'fa-brands fa-facebook', color: '#1877f2' },
+        { name: 'reddit', icon: 'fa-brands fa-reddit', color: '#ff4500' },
+        { name: 'whatsapp', icon: 'fa-brands fa-whatsapp', color: '#25d366' },
+        { name: 'linkedin', icon: 'fa-brands fa-linkedin', color: '#0a66c2' },
+        { name: 'telegram', icon: 'fa-brands fa-telegram', color: '#0088cc' },
+        { name: 'email', icon: 'fa-solid fa-envelope', color: '#ea4335' }
       ]
     }
   },
+
+  // ========== Vite Configuration for Plugin ==========
+  vite: {
+    optimizeDeps: {
+      exclude: [
+        '@nolebase/vitepress-plugin-enhanced-readabilities/client',
+        'vitepress',
+        '@nolebase/ui'
+      ],
+    },
+    ssr: {
+      noExternal: [
+        '@nolebase/vitepress-plugin-enhanced-readabilities',
+        '@nolebase/ui'
+      ],
+    },
+  },
+
+  // ========== Custom Theme for Plugin Integration ==========
+  theme: './theme/index.js', // Assuming you create .vitepress/theme/index.js as below
 
   // ========== Build Optimization ==========
   build: {
@@ -463,92 +468,15 @@ export default defineConfig({
       }
     }
   },
-  
+
   // ========== Cache Configuration ==========
   cacheDir: './.vitepress/.vite',
-  
-  // ========== RSS Configuration ==========
-  async buildEnd(siteConfig) {
-    const { pages, outDir } = siteConfig
-    const baseUrl = 'https://zeapi.ink'
-    
-    const zhFeed = new Feed({
-      title: '梦泽API文档更新',
-      description: '梦泽API文档的最新更新',
-      id: baseUrl,
-      link: baseUrl,
-      language: 'zh',
-      image: `${baseUrl}/logo.png`,
-      favicon: `${baseUrl}/Logo.svg`,
-      copyright: `版权所有 © ${new Date().getFullYear()} ZeAPI 团队`,
-      updated: new Date(),
-      generator: 'Feed for Node.js',
-    })
-    
-    const enFeed = new Feed({
-      title: 'ZeAPI Documentation Updates',
-      description: 'Latest updates to ZeAPI documentation',
-      id: `${baseUrl}/en/`,
-      link: `${baseUrl}/en/`,
-      language: 'en',
-      image: `${baseUrl}/en/logo.png`,
-      favicon: `${baseUrl}/Logo.svg`,
-      copyright: `Copyright © ${new Date().getFullYear()} ZeAPI Team`,
-      updated: new Date(),
-      generator: 'Feed for Node.js',
-    })
-    
-    const validPages = pages.filter(page => 
-      page && 
-      page.path && 
-      typeof page.path === 'string'
-    )
-    
-    validPages
-      .filter(page => 
-        !page.path.startsWith('/404') && 
-        !page.path.startsWith('/private'))
-      .forEach(page => {
-        const item = {
-          title: page.title || 'Untitled',
-          id: `${baseUrl}${page.path}`,
-          link: `${baseUrl}${page.path}`,
-          description: page.description || 'No description available',
-          date: page.lastUpdated ? new Date(page.lastUpdated) : new Date(),
-        }
-        
-        if (page.path.startsWith('/en/')) {
-          enFeed.addItem(item)
-        } else {
-          zhFeed.addItem(item)
-        }
-      })
-    
-    const fs = await import('fs')
-    const path = await import('path')
-    
-    const enDir = path.join(outDir, 'en')
-    if (!fs.existsSync(enDir)) {
-      fs.mkdirSync(enDir, { recursive: true })
-    }
-    
-    fs.writeFileSync(
-      path.join(outDir, 'feed.rss'),
-      zhFeed.rss2()
-    )
-    
-    fs.writeFileSync(
-      path.join(outDir, 'en', 'feed.rss'),
-      enFeed.rss2()
-    )
-    
-    console.log('RSS feeds generated successfully!')
-  },  
+
   // ========== PWA Support ==========
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
-      name: 'ZeAPI Documentation',
+      name: 'ZeAPI',
       short_name: 'ZeAPI Docs',
       description: 'API documentation for ZeAPI services',
       theme_color: '#3eaf7c',

@@ -1,6 +1,4 @@
-/* ===== 1. 色板（纯灰阶） ===== */
 :root {
-  /* 主色 = 黑色系 */
   --black-1: #000000;   /* 最深黑 */
   --black-2: #0a0a0a;
   --black-3: #141414;
@@ -14,10 +12,8 @@
   --gray-6: #bbbbbb;
   --gray-7: #d5d5d5;
   --gray-8: #eeeeee;
-
   /* 纯白 */
   --white: #ffffff;
-  
   --primary-50:  #f5f7ff;
   --primary-100: #e9edff;
   --primary-200: #d4ddff;
@@ -30,40 +26,31 @@
   --primary-900: #34368f;
 }
 
-/* ===== 2. 语义化映射 ===== */
 :root {
   --vp-home-hero-name-background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
   --vp-home-hero-name-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  /* 主品牌 = 黑 */
   --vp-c-brand-1: var(--black-1);
   --vp-c-brand-2: var(--black-2);
   --vp-c-brand-3: var(--black-3);
   --vp-c-brand-soft: rgba(0, 0, 0, 0.05);
-
-  /* default / tip / warning / danger 均用灰阶 */
   --vp-c-default-1: var(--gray-3);
   --vp-c-default-2: var(--gray-4);
   --vp-c-default-3: var(--gray-5);
   --vp-c-default-soft: rgba(0, 0, 0, 0.03);
-
   --vp-c-tip-1: var(--gray-2);
   --vp-c-tip-2: var(--gray-3);
   --vp-c-tip-3: var(--gray-4);
   --vp-c-tip-soft: rgba(0, 0, 0, 0.04);
-
   --vp-c-warning-1: var(--gray-3);
   --vp-c-warning-2: var(--gray-4);
   --vp-c-warning-3: var(--gray-5);
   --vp-c-warning-soft: rgba(0, 0, 0, 0.05);
-
   --vp-c-danger-1: var(--black-1);
   --vp-c-danger-2: var(--black-2);
   --vp-c-danger-3: var(--black-3);
   --vp-c-danger-soft: rgba(0, 0, 0, 0.06);
-
-  /* 文本 */
   --vp-c-text-1: var(--black-1);
   --vp-c-text-2: var(--gray-3);
   --vp-c-text-3: var(--gray-5);
@@ -71,9 +58,7 @@
   --vp-c-text-inverse-2: var(--gray-8);
 }
 
-/* ===== 3. 组件级 ===== */
 :root {
-  /* Button：黑色背景，灰色 hover/active */
   --vp-button-brand-border: transparent;
   --vp-button-brand-text: var(--white);
   --vp-button-brand-bg: var(--black-1);
@@ -83,17 +68,53 @@
   --vp-button-brand-active-border: transparent;
   --vp-button-brand-active-text: var(--white);
   --vp-button-brand-active-bg: var(--gray-2);
-
   --vp-button-border-radius: 0.5rem;
   --vp-button-transition: all 0.15s ease;
-
-  /* Home Hero：去掉彩色渐变，用黑灰 */
   --vp-home-hero-name-color: var(--black-1);
-  /* 自定义块 */
   --vp-custom-block-tip-border: transparent;
   --vp-custom-block-tip-text: var(--black-1);
   --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
   --vp-custom-block-border-radius: 0.5rem;
   --vp-custom-block-box-shadow: 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+html.dark {
+  --vp-c-brand-1: var(--white);
+  --vp-c-brand-2: var(--gray-8);
+  --vp-c-brand-3: var(--gray-7);
+  --vp-c-brand-soft: rgba(255, 255, 255, 0.05);
+  --vp-c-default-1: var(--gray-6);
+  --vp-c-default-2: var(--gray-5);
+  --vp-c-default-3: var(--gray-4);
+  --vp-c-default-soft: rgba(255, 255, 255, 0.03);
+  --vp-c-tip-1: var(--gray-7);
+  --vp-c-tip-2: var(--gray-6);
+  --vp-c-tip-3: var(--gray-5);
+  --vp-c-tip-soft: rgba(255, 255, 255, 0.04);
+  --vp-c-warning-1: var(--gray-6);
+  --vp-c-warning-2: var(--gray-5);
+  --vp-c-warning-3: var(--gray-4);
+  --vp-c-warning-soft: rgba(255, 255, 255, 0.05);
+  --vp-c-danger-1: var(--white);
+  --vp-c-danger-2: var(--gray-8);
+  --vp-c-danger-3: var(--gray-7);
+  --vp-c-danger-soft: rgba(255, 255, 255, 0.06);
+  --vp-c-text-1: var(--white);
+  --vp-c-text-2: var(--gray-6);
+  --vp-c-text-3: var(--gray-5);
+  --vp-c-text-inverse-1: var(--black-1);
+  --vp-c-text-inverse-2: var(--gray-2);
+  --vp-button-brand-bg: var(--white);
+  --vp-button-brand-text: var(--black-1);
+  --vp-button-brand-hover-bg: var(--gray-8);
+  --vp-button-brand-hover-text: var(--black-1);
+  --vp-button-brand-active-bg: var(--gray-7);
+  --vp-button-brand-active-text: var(--black-1);
+  --vp-home-hero-name-color: var(--white);
+}
+
+html.dark .VPNavBarTitle img[src*="Logo.svg"],
+html.dark .VPHero img[src*="Logo.svg"] {
+  filter: invert(1) hue-rotate(180deg);
 }
