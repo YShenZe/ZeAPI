@@ -5,7 +5,7 @@ import { Feed } from 'feed'
 export default defineConfig({
   // ========== Global Configuration ==========
   head: [
-    ['link', { rel: 'icon', href: '/favicon.svg' }],
+    ['link', { rel: 'icon', href: '/Logo.svg' }],
     ['link', { 
       rel: 'alternate',
       type: 'application/rss+xml',
@@ -63,7 +63,7 @@ export default defineConfig({
         ['style', {}, 'body { font-family: "Source Han Sans SC", sans-serif; }'],
       ],
       themeConfig: {
-        siteTitle: '梦泽API',
+        siteTitle: '',
         mobileNav: {
           text: '菜单',
           openIcon: 'i-material-symbols-menu',
@@ -72,7 +72,7 @@ export default defineConfig({
         seo: {
           title: '梦泽API - 免费公共服务接口',
           description: '提供域名查询、二维码生成、IP定位、我的世界信息查询、ICP备案查询等API服务',
-          ogImage: '/favicon.svg',
+          ogImage: '/Logo.svg',
           twitterCard: 'summary_large_image',
           canonicalUrl: 'https://zeapi.ink/',
           ogUrl: 'https://zeapi.ink/',
@@ -107,7 +107,7 @@ export default defineConfig({
             ],
           },
           { text: '<i class="mdi mdi-information" aria-hidden="true"></i> 关于本站', link: '/team' },
-          { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> 友情链接', link: '/links' }, // Added Links page
+          { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> 友情链接', link: '/docs/links' }, // Added Links page
           { text: '<i class="mdi mdi-github" aria-hidden="true"></i> GitHub', link: 'https://github.com/yshenze/zeapi' },
           { text: '<i class="mdi mdi-web" aria-hidden="true"></i> 站长博客', link: 'https://mengze.vip/' },
           { text: '<i class="mdi mdi-link" aria-hidden="true"></i> 公共短链接服务', link: 'https://mzurl.xyz' },
@@ -168,7 +168,7 @@ export default defineConfig({
               text: '<i class="mdi mdi-information" aria-hidden="true"></i> 其他',
               items: [
                 { text: '<i class="mdi mdi-information" aria-hidden="true"></i> 关于本站', link: '/team' },
-                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> 友情链接', link: '/links' }, // Added Links page
+                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> 友情链接', link: '/docs/links' }, // Added Links page
               ]
             }
           ]
@@ -210,7 +210,7 @@ export default defineConfig({
       link: '/en/',
       head: [],
       themeConfig: {
-        siteTitle: 'ZeAPI',
+        siteTitle: '',
         mobileNav: {
           text: 'Menu',
           openIcon: 'i-material-symbols-menu',
@@ -219,7 +219,7 @@ export default defineConfig({
         seo: {
           title: 'ZeAPI - Free Public API Services',
           description: 'API documentation for ZeAPI services including domain whois, QR code generation, IP geolocation, Minecraft server status and more.',
-          ogImage: '/en/favicon.svg',
+          ogImage: '/en/Logo.svg',
           twitterCard: 'summary_large_image',
           canonicalUrl: 'https://zeapi.ink/en/',
           ogUrl: 'https://zeapi.ink/en/',
@@ -254,7 +254,7 @@ export default defineConfig({
             ],
           },
           { text: '<i class="mdi mdi-information" aria-hidden="true"></i> About Me', link: '/en/team' },
-          { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> Links', link: '/en/links' }, // Added Links page
+          { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> Links', link: '/en/docs/links' }, // Added Links page
           { text: '<i class="mdi mdi-github" aria-hidden="true"></i> GitHub', link: 'https://github.com/yshenze/zeapi' },
           { text: '<i class="mdi mdi-web" aria-hidden="true"></i> Blog', link: 'https://mengze.vip/' },
           { text: '<i class="mdi mdi-link" aria-hidden="true"></i> ShortURL', link: 'https://mzurl.xyz' },
@@ -315,7 +315,7 @@ export default defineConfig({
               text: '<i class="mdi mdi-information" aria-hidden="true"></i> Other',
               items: [
                 { text: '<i class="mdi mdi-information" aria-hidden="true"></i> About Me', link: '/en/team' },
-                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> Links', link: '/en/links' }, // Added Links page
+                { text: '<i class="mdi mdi-link-variant" aria-hidden="true"></i> Links', link: '/en/docs/links' }, // Added Links page
               ]
             }
           ]
@@ -351,7 +351,7 @@ export default defineConfig({
 
   // ========== Global Theme Configuration ==========
   themeConfig: {
-    logo: '/favicon.svg',
+    logo: '/Logo.svg',
     
     search: {
       provider: 'local',
@@ -479,7 +479,7 @@ export default defineConfig({
       link: baseUrl,
       language: 'zh',
       image: `${baseUrl}/logo.png`,
-      favicon: `${baseUrl}/favicon.ico`,
+      favicon: `${baseUrl}/Logo.svg`,
       copyright: `版权所有 © ${new Date().getFullYear()} ZeAPI 团队`,
       updated: new Date(),
       generator: 'Feed for Node.js',
@@ -492,7 +492,7 @@ export default defineConfig({
       link: `${baseUrl}/en/`,
       language: 'en',
       image: `${baseUrl}/en/logo.png`,
-      favicon: `${baseUrl}/favicon.ico`,
+      favicon: `${baseUrl}/Logo.svg`,
       copyright: `Copyright © ${new Date().getFullYear()} ZeAPI Team`,
       updated: new Date(),
       generator: 'Feed for Node.js',
@@ -554,12 +554,12 @@ export default defineConfig({
       theme_color: '#3eaf7c',
       icons: [
         {
-          src: '/favicon.svg',
+          src: '/Logo.svg',
           sizes: '192x192',
           type: 'image/png'
         },
         {
-          src: '/favicon.svg',
+          src: '/Logo.svg',
           sizes: '512x512',
           type: 'image/png'
         }

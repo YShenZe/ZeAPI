@@ -4,7 +4,7 @@ import {
   onMounted,
   onUnmounted,
   useTemplateRef
-} from "./chunk-DDXJJ377.js";
+} from "./chunk-HVR2FF6M.js";
 import {
   __publicField
 } from "./chunk-V6TY7KAL.js";
@@ -2067,9 +2067,9 @@ import { default as default4 } from "/data/data/com.termux/files/home/API-List/n
 import { default as default5 } from "/data/data/com.termux/files/home/API-List/node_modules/@theojs/lumen/components/LmBoxCube.vue";
 import { default as default6 } from "/data/data/com.termux/files/home/API-List/node_modules/@theojs/lumen/components/LmCard.vue";
 import { default as default7 } from "/data/data/com.termux/files/home/API-List/node_modules/@theojs/lumen/components/LmLinks.vue";
-import { default as default8 } from "/data/data/com.termux/files/home/API-List/node_modules/@theojs/lumen/components/LmVid.vue";
-import { default as default9 } from "/data/data/com.termux/files/home/API-List/node_modules/@theojs/lumen/components/LmFooter.vue";
-import { default as default10 } from "/data/data/com.termux/files/home/API-List/node_modules/@theojs/lumen/components/LmUnderline.vue";
+import { default as default8 } from "/data/data/com.termux/files/home/API-List/node_modules/@theojs/lumen/components/LmFooter.vue";
+import { default as default9 } from "/data/data/com.termux/files/home/API-List/node_modules/@theojs/lumen/components/LmUnderline.vue";
+import { default as default10 } from "/data/data/com.termux/files/home/API-List/node_modules/@theojs/lumen/components/LmCopyText.vue";
 var Waline = defineAsyncComponent(() => import("/data/data/com.termux/files/home/API-List/node_modules/@theojs/lumen/components/LmWaline.vue"));
 
 // node_modules/@theojs/lumen/composables/baiduAnalytics.ts
@@ -2116,11 +2116,7 @@ function mountUmami(options) {
     return;
   }
   let properties = [];
-  if (Array.isArray(options)) {
-    properties.push(...options);
-  } else {
-    properties.push(options);
-  }
+  Array.isArray(options) ? properties.push(...options) : properties.push(options);
   properties = properties.filter((property) => Boolean(property.id));
   if (!properties.length) return;
   for (const property of properties) {
@@ -2136,9 +2132,7 @@ function mountUmami(options) {
   }
 }
 var umamiAnalytics_default = (options) => {
-  if (typeof window !== "undefined") {
-    mountUmami(options);
-  }
+  if (typeof window !== "undefined") mountUmami(options);
 };
 
 // node_modules/@theojs/lumen/composables/utils.ts
@@ -2171,33 +2165,6 @@ function moveDomElements(refName, targetSelector = ".VPHero .text") {
     elementRef.value && ((_a = placeholder == null ? void 0 : placeholder.parentNode) == null ? void 0 : _a.replaceChild(elementRef.value, placeholder));
   });
 }
-var video = {
-  bilibili: {
-    src: (id) => `https://player.bilibili.com/player.html?bvid=${id}&autoplay=0`,
-    title: "Bilibili video player"
-  },
-  tencent: {
-    src: (id) => `https://v.qq.com/txp/iframe/player.html?vid=${id}`,
-    title: "Tencent Video player"
-  },
-  youku: {
-    src: (id) => `https://player.youku.com/embed/${id}`,
-    title: "Youku video player"
-  },
-  youtube: {
-    src: (id) => `https://www.youtube-nocookie.com/embed/${id}`,
-    title: "YouTube video player"
-  },
-  vimeo: {
-    src: (id) => `https://player.vimeo.com/video/${id}`,
-    title: "Vimeo video player"
-  }
-};
-function getVideo(props) {
-  if (props.is && props.id) return video[props.is];
-  if (props.id) return video.youtube;
-  return { src: props.src || "", title: "Custom video player" };
-}
 function getLocaleKey() {
   const { localeIndex } = useData();
   return computed(() => localeIndex.value);
@@ -2206,24 +2173,22 @@ export {
   default3 as Aside,
   default5 as BoxCube,
   default6 as Card,
+  default10 as CopyText,
   EXTERNAL_URL_RE,
-  default9 as Footer,
+  default8 as Footer,
   default7 as Links,
   default2 as Notice,
   default4 as Pill,
-  default10 as Underline,
-  default8 as Vid,
+  default9 as Underline,
   Waline,
   baiduAnalytics,
   getLocaleKey,
-  getVideo,
   googleAnalytics_default as googleAnalytics,
   isExternal,
   moveDomElements,
   trackPageview,
   umamiAnalytics_default as umamiAnalytics,
-  useNotice,
-  video
+  useNotice
 };
 /*! Bundled license information:
 

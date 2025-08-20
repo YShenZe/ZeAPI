@@ -2,13 +2,11 @@
 layout: home
 
 hero:
-  Notice:
-    title: '🎉 API文档已全面迁移至VitePress框架!'
   name: 梦泽公共API文档中心
   text: 只为提供专业的公共API服务集成平台
   tagline: 免费开源 · 高效稳定 · 即插即用 · 无需认证
   image:
-    src: /favicon.svg
+    src: /Logo.svg
     alt: VitePress
   actions:
     - theme: brand

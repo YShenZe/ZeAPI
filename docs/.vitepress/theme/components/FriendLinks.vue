@@ -29,7 +29,7 @@ const links: Link[] = [
   {
     name: 'LineXic书屋',
     intro: '难离难舍，想抱紧些',
-    logo: 'https:/www.linexic.top/avatar.webp',
+    logo: 'https://www.linexic.top/avatar.webp',
     url: 'https://www.linexic.top'
   },
   {

@@ -2,13 +2,11 @@
 layout: home
 
 hero:
-  Notice:
-    title: '🎉 API docs have fully migrated to VitePress!'
   name: MengZe Public APIs
   text: A curated collection of handy public APIs
   tagline: Free • Lightweight • Fast • No registration required
   image:
-    src: /favicon.svg
+    src: /Logo.svg
     alt: VitePress
   actions:
     - theme: brand
