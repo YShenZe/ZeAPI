@@ -96,6 +96,26 @@ features:
   - title: 微信域名拦截检测
     link: /docs/txljjc
     details: 检测指定域名是否被微信拦截，返回状态码及结果信息，适用于合规性检查及链接安全性验证。
+
+  - title: UUID 生成器
+    link: /docs/uuid
+    details: 生成符合RFC 4122标准的通用唯一标识符(UUID)，支持多个版本(v1/v4)及批量生成，适用于分布式系统标识与数据去重。
+
+  - title: SSL证书信息查询
+    link: /docs/sslinfo
+    details: 查询域名的SSL/TLS证书详细信息，包括颁发机构、有效期、加密算法及证书链，适用于安全审计与证书监控。
+
+  - title: 网站元数据获取
+    link: /docs/siteinfo
+    details: 提取网站标题、描述、关键词、图标及开放图谱等元数据，支持自定义User-Agent及超时设置，适用于内容分析与SEO工具。
+
+  - title: JWT 解析与验证
+    link: /docs/jwt
+    details: 解析JSON Web Token(JWT)并验证签名有效性，支持HS256/RS256等算法，返回载荷信息及验证结果，适用于身份验证调试。
+
+  - title: Epic 免费游戏查询
+    link: /docs/epicgame
+    details: 获取Epic Games商店当前免费游戏信息，包括标题、描述、原价、免费期限及封面图片，适用于游戏资讯聚合与推送服务。
     
   - title: 更多接口开发中
     details: 我们正在持续扩展API集合，包括AI集成及高级数据分析功能，敬请关注更新日志以获取最新进展。

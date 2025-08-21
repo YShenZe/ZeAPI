@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress'
 import { figure } from '@mdit/plugin-figure'
 
 export default defineConfig({
-  // ========== Global Configuration ==========
   head: [
     ['link', { rel: 'icon', href: '/Logo.svg' }],
     ['meta', { name: 'author', content: 'ZeAPI Team' }],
@@ -13,22 +12,15 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.mengze.vip/npm/@fortawesome/fontawesome-free@6/css/all.min.css' }]
   ],
-  lastUpdated: true,
-  appearance: true, // Enable theme switcher while following system theme
-
-  // ========== Sitemap Configuration ==========
+  appearance: true,
   sitemap: {
     hostname: 'https://zeapi.ink',
   },
-
   markdown: {
     config: (md) => {
       md.use(figure);
     },
-    theme: {
-      light: 'github-light',
-      dark: 'dracula'
-    },
+    theme: { light: 'github-light', dark: 'dracula' },
     lineNumbers: true,
     image: {
       lazy: true,
@@ -39,8 +31,6 @@ export default defineConfig({
       quality: 85
     }
   },
-
-  // ========== Multi-Language Configuration ==========
   locales: {
     root: {
       label: '简体中文',
@@ -97,6 +87,11 @@ export default defineConfig({
               { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> 抖音热搜', link: '/docs/douyin' },
               { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> 百度热点', link: '/docs/baidu' },
               { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> 微信域名拦截检测', link: '/docs/txljjc' },
+              { text: '<i class="fa-solid fa-fingerprint" aria-hidden="true"></i> UUID 生成器', link: '/docs/uuid' },
+              { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> SSL证书信息查询', link: '/docs/sslinfo' },
+              { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> 网站元数据获取', link: '/docs/siteinfo' },
+              { text: '<i class="fa-solid fa-key" aria-hidden="true"></i> JWT 解析与验证', link: '/docs/jwt' },
+              { text: '<i class="fa-solid fa-gamepad" aria-hidden="true"></i> Epic 免费游戏查询', link: '/docs/epicgame' },
             ],
           },
           { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> 关于本站', link: '/docs/team' },
@@ -116,6 +111,7 @@ export default defineConfig({
                 { text: '<i class="fa-solid fa-images" aria-hidden="true"></i> 随机二次元图片', link: '/docs/sjecy' },
                 { text: '<i class="fa-solid fa-face-smile" aria-hidden="true"></i> 随机 Meme 图片', link: '/docs/sjmeme' },
                 { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Bing 每日壁纸', link: '/docs/bingpic' },
+                { text: '<i class="fa-solid fa-gamepad" aria-hidden="true"></i> Epic 免费游戏查询', link: '/docs/epicgame' },
               ],
             },
             {
@@ -125,6 +121,7 @@ export default defineConfig({
                 { text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> 域名 Whois + 查价', link: '/docs/whois' },
                 { text: '<i class="fa-solid fa-file-lines" aria-hidden="true"></i> 域名 ICP 备案查询', link: '/docs/icpquery' },
                 { text: '<i class="fa-solid fa-map-marker" aria-hidden="true"></i> IP 地址归属地查询', link: '/docs/ipseek' },
+                { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> SSL证书信息查询', link: '/docs/sslinfo' },
               ],
             },
             {
@@ -136,6 +133,7 @@ export default defineConfig({
                 { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> 抖音热搜', link: '/docs/douyin' },
                 { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> 百度热点', link: '/docs/baidu' },
                 { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> 微信域名拦截检测', link: '/docs/txljjc' },
+                { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> 网站元数据获取', link: '/docs/siteinfo' },
               ],
             },
             {
@@ -154,6 +152,8 @@ export default defineConfig({
                 { text: '<i class="fa-solid fa-lock" aria-hidden="true"></i> PBKDF2 零知识密码生成', link: '/docs/pbkdf2' },
                 { text: '<i class="fa-solid fa-font" aria-hidden="true"></i> Base64 ⇄ 文本', link: '/docs/b64totext' },
                 { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Base64 ⇄ 图片', link: '/docs/b64toimg' },
+                { text: '<i class="fa-solid fa-fingerprint" aria-hidden="true"></i> UUID 生成器', link: '/docs/uuid' },
+                { text: '<i class="fa-solid fa-key" aria-hidden="true"></i> JWT 解析与验证', link: '/docs/jwt' },
               ],
             },
             {
@@ -175,10 +175,7 @@ export default defineConfig({
         },
         lastUpdated: {
           text: '最后更新',
-          formatOptions: {
-            dateStyle: 'full',
-            timeStyle: 'medium'
-          }
+          formatOptions: { dateStyle: 'full', timeStyle: 'medium' }
         },
         docFooter: {
           prev: '上一篇',
@@ -192,7 +189,6 @@ export default defineConfig({
         darkModeSwitchLabel: '外观',
       }
     },
-
     en: {
       label: 'English',
       lang: 'en-US',
@@ -243,6 +239,11 @@ export default defineConfig({
               { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> Douyin Hot Search', link: '/en/docs/douyin' },
               { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> Baidu Hot Search', link: '/en/docs/baidu' },
               { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> WeChat Domain Block Detection', link: '/en/docs/txljjc' },
+              { text: '<i class="fa-solid fa-fingerprint" aria-hidden="true"></i> UUID Generator', link: '/en/docs/uuid' },
+              { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> SSL Certificate Info', link: '/en/docs/sslinfo' },
+              { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> Website Metadata', link: '/en/docs/siteinfo' },
+              { text: '<i class="fa-solid fa-key" aria-hidden="true"></i> JWT Parse & Verify', link: '/en/docs/jwt' },
+              { text: '<i class="fa-solid fa-gamepad" aria-hidden="true"></i> Epic Free Games', link: '/en/docs/epicgame' },
             ],
           },
           { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> About Me', link: '/en/docs/team' },
@@ -262,6 +263,7 @@ export default defineConfig({
                 { text: '<i class="fa-solid fa-images" aria-hidden="true"></i> Random Anime Pic', link: '/en/docs/sjecy' },
                 { text: '<i class="fa-solid fa-face-smile" aria-hidden="true"></i> Random Meme Pic', link: '/en/docs/sjmeme' },
                 { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Bing Daily Wallpaper', link: '/en/docs/bingpic' },
+                { text: '<i class="fa-solid fa-gamepad" aria-hidden="true"></i> Epic Free Games', link: '/en/docs/epicgame' },
               ],
             },
             {
@@ -271,6 +273,7 @@ export default defineConfig({
                 { text: '<i class="fa-solid fa-globe" aria-hidden="true"></i> Domain Whois & Pricing', link: '/en/docs/whois' },
                 { text: '<i class="fa-solid fa-file-lines" aria-hidden="true"></i> ICP Lookup', link: '/en/docs/icpquery' },
                 { text: '<i class="fa-solid fa-map-marker" aria-hidden="true"></i> IP Geolocation', link: '/en/docs/ipseek' },
+                { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> SSL Certificate Info', link: '/en/docs/sslinfo' },
               ],
             },
             {
@@ -282,6 +285,7 @@ export default defineConfig({
                 { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> Douyin Hot Search', link: '/en/docs/douyin' },
                 { text: '<i class="fa-solid fa-chart-line" aria-hidden="true"></i> Baidu Hot Search', link: '/en/docs/baidu' },
                 { text: '<i class="fa-solid fa-shield-halved" aria-hidden="true"></i> WeChat Domain Block Detection', link: '/en/docs/txljjc' },
+                { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> Website Metadata', link: '/en/docs/siteinfo' },
               ],
             },
             {
@@ -300,6 +304,8 @@ export default defineConfig({
                 { text: '<i class="fa-solid fa-lock" aria-hidden="true"></i> PBKDF2 Generator', link: '/en/docs/pbkdf2' },
                 { text: '<i class="fa-solid fa-font" aria-hidden="true"></i> Base64 ⇄ Text', link: '/en/docs/b64totext' },
                 { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Base64 ⇄ Image', link: '/en/docs/b64toimg' },
+                { text: '<i class="fa-solid fa-fingerprint" aria-hidden="true"></i> UUID Generator', link: '/en/docs/uuid' },
+                { text: '<i class="fa-solid fa-key" aria-hidden="true"></i> JWT Parse & Verify', link: '/en/docs/jwt' },
               ],
             },
             {
@@ -321,10 +327,7 @@ export default defineConfig({
         },
         lastUpdated: {
           text: 'Last updated',
-          formatOptions: {
-            dateStyle: 'full',
-            timeStyle: 'medium'
-          }
+          formatOptions: { dateStyle: 'full', timeStyle: 'medium' }
         },
         docFooter: {
           prev: 'Previous',
@@ -339,11 +342,8 @@ export default defineConfig({
       }
     }
   },
-
-  // ========== Global Theme Configuration ==========
   themeConfig: {
     logo: '/Logo.svg',
-
     search: {
       provider: 'local',
       options: {
@@ -389,51 +389,33 @@ export default defineConfig({
           }
         }
       }
-    },
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/yshenze/zeapi' },
-    ],
-
-    localeLinks: {
-      items: [
-        { text: '简体中文', link: '/' },
-        { text: 'English', link: '/en/' }
-      ]
-    },
-
-    darkModeSwitchLabel: 'Appearance',
-    returnToTopLabel: 'Return to top',
-    outline: {
-      level: 'deep',
-      label: 'On this page'
-    },
-    docFooter: {
-      prev: 'Previous',
-      next: 'Next'
-    },
-    lastUpdated: {
-      text: 'Last updated',
-      formatOptions: {
-        dateStyle: 'full',
-        timeStyle: 'medium'
-      }
-    },
-
-    socialShare: {
-      networks: [
-        { name: 'twitter', icon: 'fa-brands fa-twitter', color: '#000000' },
-        { name: 'facebook', icon: 'fa-brands fa-facebook', color: '#1877f2' },
-        { name: 'reddit', icon: 'fa-brands fa-reddit', color: '#ff4500' },
-        { name: 'whatsapp', icon: 'fa-brands fa-whatsapp', color: '#25d366' },
-        { name: 'linkedin', icon: 'fa-brands fa-linkedin', color: '#0a66c2' },
-        { name: 'telegram', icon: 'fa-brands fa-telegram', color: '#0088cc' },
-        { name: 'email', icon: 'fa-solid fa-envelope', color: '#ea4335' }
-      ]
     }
   },
-
-  // ========== Vite Configuration for Plugin ==========
+  socialLinks: [
+    { icon: 'github', link: 'https://github.com/yshenze/zeapi' },
+  ],
+  localeLinks: {
+    items: [
+      { text: '简体中文', link: '/' },
+      { text: 'English', link: '/en/' }
+    ]
+  },
+  darkModeSwitchLabel: 'Appearance',
+  returnToTopLabel: 'Return to top',
+  outline: { level: 'deep', label: 'On this page' },
+  docFooter: { prev: 'Previous', next: 'Next' },
+  lastUpdated: { text: 'Last updated', formatOptions: { dateStyle: 'full', timeStyle: 'medium' } },
+  socialShare: {
+    networks: [
+      { name: 'twitter', icon: 'fa-brands fa-twitter', color: '#000000' },
+      { name: 'facebook', icon: 'fa-brands fa-facebook', color: '#1877f2' },
+      { name: 'reddit', icon: 'fa-brands fa-reddit', color: '#ff4500' },
+      { name: 'whatsapp', icon: 'fa-brands fa-whatsapp', color: '#25d366' },
+      { name: 'linkedin', icon: 'fa-brands fa-linkedin', color: '#0a66c2' },
+      { name: 'telegram', icon: 'fa-brands fa-telegram', color: '#0088cc' },
+      { name: 'email', icon: 'fa-solid fa-envelope', color: '#ea4335' }
+    ]
+  },
   vite: {
     optimizeDeps: {
       exclude: [
@@ -449,11 +431,7 @@ export default defineConfig({
       ],
     },
   },
-
-  // ========== Custom Theme for Plugin Integration ==========
-  theme: './theme/index.js', // Assuming you create .vitepress/theme/index.js as below
-
-  // ========== Build Optimization ==========
+  theme: './theme/index.js',
   build: {
     minify: 'terser',
     cssCodeSplit: true,
@@ -468,11 +446,7 @@ export default defineConfig({
       }
     }
   },
-
-  // ========== Cache Configuration ==========
   cacheDir: './.vitepress/.vite',
-
-  // ========== PWA Support ==========
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
@@ -497,7 +471,7 @@ export default defineConfig({
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
       runtimeCaching: [
         {
-          urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+          urlPattern: /^https:\/\/fonts\.googleapis\.com\/./i,
           handler: 'CacheFirst',
           options: {
             cacheName: 'google-fonts-cache',
@@ -511,7 +485,7 @@ export default defineConfig({
           }
         },
         {
-          urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+          urlPattern: /^https:\/\/fonts\.gstatic\.com\/./i,
           handler: 'CacheFirst',
           options: {
             cacheName: 'google-fonts-static-cache',

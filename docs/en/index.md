@@ -97,6 +97,26 @@ features:
     link: /en/docs/txljjc
     details: Checks if a specified domain is blocked by WeChat, returning status codes and result info, ideal for compliance checks and link safety verification.
 
+  - title: UUID Generator
+    link: /en/docs/uuid
+    details: Generates RFC 4122 compliant Universally Unique Identifiers (UUIDs), supporting multiple versions (v1/v4) and batch generation, ideal for distributed systems and data deduplication.
+
+  - title: SSL Certificate Info
+    link: /en/docs/sslinfo
+    details: Queries detailed SSL/TLS certificate information for domains, including issuer, validity period, encryption algorithms, and certificate chain, suitable for security audits and certificate monitoring.
+
+  - title: Website Metadata
+    link: /en/docs/siteinfo
+    details: Extracts website metadata including title, description, keywords, favicon, and Open Graph tags, with customizable User-Agent and timeout settings, ideal for content analysis and SEO tools.
+
+  - title: JWT Parser & Validator
+    link: /en/docs/jwt
+    details: Parses JSON Web Tokens (JWT) and validates signature authenticity, supporting algorithms like HS256/RS256, returns payload information and validation results, suitable for authentication debugging.
+
+  - title: Epic Free Games
+    link: /en/docs/epicgame
+    details: Retrieves current free game information from the Epic Games Store, including title, description, original price, free period, and cover images, ideal for gaming news aggregation and push services.
+
   - title: More APIs in Development
     details: We are continuously expanding our API collection, including AI integration and advanced data analytics features. Stay tuned for updates in our changelog.
 
