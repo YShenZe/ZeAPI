@@ -37,8 +37,18 @@ const platinumSponsors = ref([
     alt: 'Pingloc 铂金赞助'
   },
   {
-    image: 'https://jingtai.s3-cn-gd.ufileos.com/icon/7EA7165982EBF6302E78C4E6B666164A.png',
-    link: 'https://www.pingloc.com/ping',
+    image: 'https://ypay.qzqi.com/wp-content/uploads/2025/07/2025070117040270.webp',
+    link: 'https://code.nmmp.cn/',
+    alt: 'Pingloc 铂金赞助'
+  },
+  {
+    image: 'https://youke1.picui.cn/s1/2025/08/22/68a832a5a9c0e.png',
+    link: 'http://www.wuqi520.xyz/',
+    alt: 'Pingloc 铂金赞助'
+  },
+  {
+    image: 'https://cdn.zeart.ink/gh/YShenZe/Blog-Static-Resource@main/images/202508221755854578608-24a59324e3996c5b60eb81157a2a5c9d.png',
+    link: 'https://mpay.5xv.cn',
     alt: 'Pingloc 铂金赞助'
   }
 ]);
