@@ -117,6 +117,10 @@ features:
     link: /docs/epicgame
     details: 获取Epic Games商店当前免费游戏信息，包括标题、描述、原价、免费期限及封面图片，适用于游戏资讯聚合与推送服务。
     
+  - title: IP签名档
+    link: /docs/ipsign
+    details: 直接访问URL即可获取IP签名档图片，支持天气和IP定位
+    
   - title: 更多接口开发中
     details: 我们正在持续扩展API集合，包括AI集成及高级数据分析功能，敬请关注更新日志以获取最新进展。
 
@@ -134,5 +138,7 @@ features:
 - 🔒 **安全优先**：HTTPS加密、速率限制及输入验证，保护您的应用免受威胁。
 
 所有接口均经过严格测试，适用于生产环境，并提供详细文档与示例代码。立即开始您的集成之旅，提升项目效率！
+
+<Sponsors />
 
 <Confetti />

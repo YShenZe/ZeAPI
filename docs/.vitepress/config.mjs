@@ -92,6 +92,7 @@ export default defineConfig({
               { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> 网站元数据获取', link: '/docs/siteinfo' },
               { text: '<i class="fa-solid fa-key" aria-hidden="true"></i> JWT 解析与验证', link: '/docs/jwt' },
               { text: '<i class="fa-solid fa-gamepad" aria-hidden="true"></i> Epic 免费游戏查询', link: '/docs/epicgame' },
+              { text: '<i class="fa-solid fa-map-marker" aria-hidden="true"></i> IP签名档图片', link: '/docs/ipsign' },
             ],
           },
           { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> 关于本站', link: '/docs/team' },
@@ -112,6 +113,8 @@ export default defineConfig({
                 { text: '<i class="fa-solid fa-face-smile" aria-hidden="true"></i> 随机 Meme 图片', link: '/docs/sjmeme' },
                 { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Bing 每日壁纸', link: '/docs/bingpic' },
                 { text: '<i class="fa-solid fa-gamepad" aria-hidden="true"></i> Epic 免费游戏查询', link: '/docs/epicgame' },
+                { text: '<i class="fa-solid fa-map-marker" aria-hidden="true"></i> IP签名档图片', link: '/docs/ipsign' },
+                
               ],
             },
             {
@@ -244,6 +247,7 @@ export default defineConfig({
               { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> Website Metadata', link: '/en/docs/siteinfo' },
               { text: '<i class="fa-solid fa-key" aria-hidden="true"></i> JWT Parse & Verify', link: '/en/docs/jwt' },
               { text: '<i class="fa-solid fa-gamepad" aria-hidden="true"></i> Epic Free Games', link: '/en/docs/epicgame' },
+              { text: '<i class="fa-solid fa-map-marker" aria-hidden="true"></i> IP Sign Image', link: '/en/docs/ipsign' },
             ],
           },
           { text: '<i class="fa-solid fa-info-circle" aria-hidden="true"></i> About Me', link: '/en/docs/team' },
@@ -264,6 +268,7 @@ export default defineConfig({
                 { text: '<i class="fa-solid fa-face-smile" aria-hidden="true"></i> Random Meme Pic', link: '/en/docs/sjmeme' },
                 { text: '<i class="fa-solid fa-image" aria-hidden="true"></i> Bing Daily Wallpaper', link: '/en/docs/bingpic' },
                 { text: '<i class="fa-solid fa-gamepad" aria-hidden="true"></i> Epic Free Games', link: '/en/docs/epicgame' },
+                { text: '<i class="fa-solid fa-map-marker" aria-hidden="true"></i> IP Sign Image', link: '/en/docs/ipsign' },
               ],
             },
             {

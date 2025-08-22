@@ -116,6 +116,10 @@ features:
   - title: Epic Free Games
     link: /en/docs/epicgame
     details: Retrieves current free game information from the Epic Games Store, including title, description, original price, free period, and cover images, ideal for gaming news aggregation and push services.
+    
+  - title: IP Sign Image
+    link: /en/docs/ipsign
+    details: Directly access the URL to get the IP signature file picture, support weather and IP positioning
 
   - title: More APIs in Development
     details: We are continuously expanding our API collection, including AI integration and advanced data analytics features. Stay tuned for updates in our changelog.
@@ -134,5 +138,7 @@ Welcome to the ZeAPI Platform: A **free, open-source API service collection** de
 - 🔒 **Security First**: HTTPS encryption, rate limiting, and input validation to protect your applications from threats.
 
 All APIs are rigorously tested for production use and come with detailed documentation and example code. Start your integration journey today to boost your project's efficiency!
+
+<Sponsors />
 
 <Confetti />
