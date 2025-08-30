@@ -1,4 +1,14 @@
 <template>
+
+<!-- 文字广告位 -->
+<div class="ad-text">
+  <strong>T级超强防御，黑洞秒解，群联高防服务器——24小时人工守护您的业务安全！</strong>
+  <br />
+  官网：<a href="https://www.qunliankeji.com/" target="_blank" rel="noopener noreferrer">https://www.qunliankeji.com/</a>
+  <br />
+  联系电话：<a href="tel:18027283529">18027283529</a>
+</div>
+
   <div class="friend-links">
     <a
       v-for="link in links"
@@ -145,5 +155,15 @@ const links: Link[] = [
   .friend-links {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.ad-text {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background-color: var(--vp-c-bg-soft);
+  border-left: 4px solid var(--vp-c-brand-1);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 </style>
